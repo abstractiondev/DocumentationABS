@@ -47,6 +47,7 @@
       <DependentUpon>DesignDocumentation_v1_0.tt</DependentUpon>
     </Compile>
     <Compile Include="Documentation\Documentation_v1_0_namespace.cs" />
+    <Compile Include="Documentation\HeaderTypeExt.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -66,6 +67,7 @@
     <None Include="Documentation\DesignDocumentation_v1_0.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>DesignDocumentation_v1_0.designer.cs</LastGenOutput>
+      <TransformOnBuild>True</TransformOnBuild>
     </None>
     <None Include="Documentation\Documentation_v1_0.ttinclude" />
   </ItemGroup>

@@ -577,14 +577,14 @@ this.Write(" } ");
 [System.SerializableAttribute()]
 [System.Diagnostics.DebuggerStepThroughAttribute()]
 [System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://tempuri.org/Operation_v1_0.xsd")]
-[System.Xml.Serialization.XmlRootAttribute(Namespace="http://tempuri.org/Operation_v1_0.xsd", IsNullable=false)]
-public partial class DocumentationAbstraction {
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/Operation_v1_0.xsd")]
+[System.Xml.Serialization.XmlRootAttribute("DocumentationAbstraction", Namespace="http://tempuri.org/Operation_v1_0.xsd", IsNullable=false)]
+public partial class DocumentationAbstractionType {
     
-    private DocumentationAbstractionDocumentations documentationsField;
+    private DocumentationsType documentationsField;
     
     /// <remarks/>
-    public DocumentationAbstractionDocumentations Documentations {
+    public DocumentationsType Documentations {
         get {
             return this.documentationsField;
         }
@@ -599,15 +599,15 @@ public partial class DocumentationAbstraction {
 [System.SerializableAttribute()]
 [System.Diagnostics.DebuggerStepThroughAttribute()]
 [System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://tempuri.org/Operation_v1_0.xsd")]
-public partial class DocumentationAbstractionDocumentations {
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/Operation_v1_0.xsd")]
+public partial class DocumentationsType {
     
-    private DocumentationAbstractionDocumentationsDocuments documentsField;
+    private DocumentsType documentsField;
     
-    private DocumentationAbstractionDocumentationsPresentations presentationsField;
+    private PresentationsType presentationsField;
     
     /// <remarks/>
-    public DocumentationAbstractionDocumentationsDocuments Documents {
+    public DocumentsType Documents {
         get {
             return this.documentsField;
         }
@@ -617,7 +617,7 @@ public partial class DocumentationAbstractionDocumentations {
     }
     
     /// <remarks/>
-    public DocumentationAbstractionDocumentationsPresentations Presentations {
+    public PresentationsType Presentations {
         get {
             return this.presentationsField;
         }
@@ -632,13 +632,13 @@ public partial class DocumentationAbstractionDocumentations {
 [System.SerializableAttribute()]
 [System.Diagnostics.DebuggerStepThroughAttribute()]
 [System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://tempuri.org/Operation_v1_0.xsd")]
-public partial class DocumentationAbstractionDocumentationsDocuments {
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/Operation_v1_0.xsd")]
+public partial class DocumentsType {
     
-    private DocumentationAbstractionDocumentationsDocumentsDocument documentField;
+    private DocumentType documentField;
     
     /// <remarks/>
-    public DocumentationAbstractionDocumentationsDocumentsDocument Document {
+    public DocumentType Document {
         get {
             return this.documentField;
         }
@@ -653,10 +653,10 @@ public partial class DocumentationAbstractionDocumentationsDocuments {
 [System.SerializableAttribute()]
 [System.Diagnostics.DebuggerStepThroughAttribute()]
 [System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://tempuri.org/Operation_v1_0.xsd")]
-public partial class DocumentationAbstractionDocumentationsDocumentsDocument {
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/Operation_v1_0.xsd")]
+public partial class DocumentType {
     
-    private DocumentationAbstractionDocumentationsDocumentsDocumentStyles stylesField;
+    private StylesType stylesField;
     
     private HeaderType[] contentField;
     
@@ -665,7 +665,7 @@ public partial class DocumentationAbstractionDocumentationsDocumentsDocument {
     private string titleField;
     
     /// <remarks/>
-    public DocumentationAbstractionDocumentationsDocumentsDocumentStyles Styles {
+    public StylesType Styles {
         get {
             return this.stylesField;
         }
@@ -713,13 +713,13 @@ public partial class DocumentationAbstractionDocumentationsDocumentsDocument {
 [System.SerializableAttribute()]
 [System.Diagnostics.DebuggerStepThroughAttribute()]
 [System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://tempuri.org/Operation_v1_0.xsd")]
-public partial class DocumentationAbstractionDocumentationsDocumentsDocumentStyles {
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/Operation_v1_0.xsd")]
+public partial class StylesType {
     
-    private DocumentationAbstractionDocumentationsDocumentsDocumentStylesStyle styleField;
+    private StyleType styleField;
     
     /// <remarks/>
-    public DocumentationAbstractionDocumentationsDocumentsDocumentStylesStyle Style {
+    public StyleType Style {
         get {
             return this.styleField;
         }
@@ -734,8 +734,8 @@ public partial class DocumentationAbstractionDocumentationsDocumentsDocumentStyl
 [System.SerializableAttribute()]
 [System.Diagnostics.DebuggerStepThroughAttribute()]
 [System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://tempuri.org/Operation_v1_0.xsd")]
-public partial class DocumentationAbstractionDocumentationsDocumentsDocumentStylesStyle {
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/Operation_v1_0.xsd")]
+public partial class StyleType {
     
     private string nameField;
     
@@ -757,9 +757,132 @@ public partial class DocumentationAbstractionDocumentationsDocumentsDocumentStyl
 [System.Diagnostics.DebuggerStepThroughAttribute()]
 [System.ComponentModel.DesignerCategoryAttribute("code")]
 [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/Operation_v1_0.xsd")]
+public partial class PresentationsType {
+    
+    private PresentationsTypePresentation presentationField;
+    
+    /// <remarks/>
+    public PresentationsTypePresentation Presentation {
+        get {
+            return this.presentationField;
+        }
+        set {
+            this.presentationField = value;
+        }
+    }
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "2.0.50727.3038")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://tempuri.org/Operation_v1_0.xsd")]
+public partial class PresentationsTypePresentation {
+    
+    private PresentationsTypePresentationSlides slidesField;
+    
+    private string nameField;
+    
+    private string titleField;
+    
+    /// <remarks/>
+    public PresentationsTypePresentationSlides Slides {
+        get {
+            return this.slidesField;
+        }
+        set {
+            this.slidesField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public string name {
+        get {
+            return this.nameField;
+        }
+        set {
+            this.nameField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public string title {
+        get {
+            return this.titleField;
+        }
+        set {
+            this.titleField = value;
+        }
+    }
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "2.0.50727.3038")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://tempuri.org/Operation_v1_0.xsd")]
+public partial class PresentationsTypePresentationSlides {
+    
+    private object slideField;
+    
+    /// <remarks/>
+    public object Slide {
+        get {
+            return this.slideField;
+        }
+        set {
+            this.slideField = value;
+        }
+    }
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "2.0.50727.3038")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/Operation_v1_0.xsd")]
+public partial class TextType {
+    
+    private string textContentField;
+    
+    private string styleRefField;
+    
+    /// <remarks/>
+    public string TextContent {
+        get {
+            return this.textContentField;
+        }
+        set {
+            this.textContentField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public string styleRef {
+        get {
+            return this.styleRefField;
+        }
+        set {
+            this.styleRefField = value;
+        }
+    }
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "2.0.50727.3038")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/Operation_v1_0.xsd")]
 public partial class HeaderType {
     
-    private ParagraphTypeText[][] paragraphField;
+    private TextType[][] paragraphField;
     
     private HeaderType[] headerField;
     
@@ -768,8 +891,8 @@ public partial class HeaderType {
     private int levelField;
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlArrayItemAttribute("Text", typeof(ParagraphTypeText), IsNullable=false)]
-    public ParagraphTypeText[][] Paragraph {
+    [System.Xml.Serialization.XmlArrayItemAttribute("Text", typeof(TextType), IsNullable=false)]
+    public TextType[][] Paragraph {
         get {
             return this.paragraphField;
         }
@@ -808,129 +931,6 @@ public partial class HeaderType {
         }
         set {
             this.levelField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "2.0.50727.3038")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://tempuri.org/Operation_v1_0.xsd")]
-public partial class ParagraphTypeText {
-    
-    private string textContentField;
-    
-    private string styleRefField;
-    
-    /// <remarks/>
-    public string TextContent {
-        get {
-            return this.textContentField;
-        }
-        set {
-            this.textContentField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlAttributeAttribute()]
-    public string styleRef {
-        get {
-            return this.styleRefField;
-        }
-        set {
-            this.styleRefField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "2.0.50727.3038")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://tempuri.org/Operation_v1_0.xsd")]
-public partial class DocumentationAbstractionDocumentationsPresentations {
-    
-    private DocumentationAbstractionDocumentationsPresentationsPresentation presentationField;
-    
-    /// <remarks/>
-    public DocumentationAbstractionDocumentationsPresentationsPresentation Presentation {
-        get {
-            return this.presentationField;
-        }
-        set {
-            this.presentationField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "2.0.50727.3038")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://tempuri.org/Operation_v1_0.xsd")]
-public partial class DocumentationAbstractionDocumentationsPresentationsPresentation {
-    
-    private DocumentationAbstractionDocumentationsPresentationsPresentationSlides slidesField;
-    
-    private string nameField;
-    
-    private string titleField;
-    
-    /// <remarks/>
-    public DocumentationAbstractionDocumentationsPresentationsPresentationSlides Slides {
-        get {
-            return this.slidesField;
-        }
-        set {
-            this.slidesField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlAttributeAttribute()]
-    public string name {
-        get {
-            return this.nameField;
-        }
-        set {
-            this.nameField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlAttributeAttribute()]
-    public string title {
-        get {
-            return this.titleField;
-        }
-        set {
-            this.titleField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "2.0.50727.3038")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://tempuri.org/Operation_v1_0.xsd")]
-public partial class DocumentationAbstractionDocumentationsPresentationsPresentationSlides {
-    
-    private object slideField;
-    
-    /// <remarks/>
-    public object Slide {
-        get {
-            return this.slideField;
-        }
-        set {
-            this.slideField = value;
         }
     }
 }
