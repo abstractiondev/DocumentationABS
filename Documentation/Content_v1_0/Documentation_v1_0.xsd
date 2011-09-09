@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2011 rel. 2 sp1 (http://www.altova.com) by Kalle Launiala (Citrus Solutions Oy) -->
+<xs:schema xmlns="http://tempuri.org/Operation_v1_0.xsd" xmlns:mstns="http://tempuri.org/Operation_v1_0.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://tempuri.org/Operation_v1_0.xsd" elementFormDefault="qualified" id="Operation_v1_0">
+	<xs:element name="DocumentationAbstraction">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Documentations">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Documents">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Document">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="Styles">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="Style">
+																	<xs:complexType>
+																		<xs:attribute name="name"/>
+																	</xs:complexType>
+																</xs:element>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="Content">
+														<xs:complexType>
+															<xs:choice maxOccurs="unbounded">
+																<xs:element name="Header" type="HeaderType"/>
+															</xs:choice>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+												<xs:attribute name="name" type="xs:string" use="required"/>
+												<xs:attribute name="title" type="xs:string" use="required"/>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Presentations" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Presentation">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="Slides">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="Slide"/>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+												<xs:attribute name="name"/>
+												<xs:attribute name="title"/>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="HeaderType">
+		<xs:sequence>
+			<xs:element name="Paragraph" type="ParagraphType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Header" type="HeaderType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="text" type="xs:string" use="required"/>
+		<xs:attribute name="level" type="xs:int" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="ParagraphType">
+		<xs:choice maxOccurs="unbounded">
+			<xs:element name="Text">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="TextContent" type="xs:string"/>
+					</xs:sequence>
+					<xs:attribute name="styleRef" type="xs:string"/>
+				</xs:complexType>
+			</xs:element>
+		</xs:choice>
+	</xs:complexType>
+</xs:schema>
