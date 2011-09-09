@@ -31,6 +31,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualStudio.TextTemplating.Interfaces.10.0, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -40,6 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Documentation\DesignDocumentation_v1_0.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DesignDocumentation_v1_0.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Documentation\Documentation_v1_0_namespace.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -57,20 +64,10 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Documentation\DesignDocumentation_v1_0.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>DesignDocumentation_v1_0.html</LastGenOutput>
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>DesignDocumentation_v1_0.designer.cs</LastGenOutput>
     </None>
     <None Include="Documentation\Documentation_v1_0.ttinclude" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Documentation\Content_v1_0\DocumentationContent_v1_0.xml">
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="Documentation\DesignDocumentation_v1_0.html">
-      <DependentUpon>DesignDocumentation_v1_0.tt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

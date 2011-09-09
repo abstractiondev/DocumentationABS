@@ -1,5 +1,5 @@
 ﻿<#@ template debug="true" hostSpecific="true" language="C#v3.5" #>
-<#@ output extension="?" #>
+<#@ output extension=".designer.cs" #>
 <#@ Assembly Name="System.Core.dll" #>
 <#@ Assembly Name="System.Xml.dll" #>
 <#@ Assembly Name="System.Xml.Linq.dll" #>
