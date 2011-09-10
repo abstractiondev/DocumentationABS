@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using Microsoft.VisualStudio.TextTemplating;
 
 namespace Documentation_v1_0
 {

@@ -21,6 +21,20 @@
 <#+ 
 	public string CurrentXmlFile;
 	
+	public Tuple<string, string>[] GetGeneratorContent(params string[] xmlFileNames)
+	{
+		List<DocumentFile> result = new List<DocumentFile>();
+		foreach(string xmlFileName in xmlFileNames)
+		{
+			DocumentationAbstractionType abs = LoadXml<DocumentationAbstractionType>(xmlFileName);
+			foreach(DocumentType doc in abs.Documentations.Documents) {
+				DocumentFile docFile = GenerateDocumentFile(doc);
+				result.Add(docFile);
+			}
+		}
+		return result.Select(docFile => Tuple.Create(docFile.Name, docFile.Content)).ToArray();
+	}
+	
 	void GenerateDocument(DocumentType document)
 	{
 		GenerateHtmlAndHeadWithStyle();

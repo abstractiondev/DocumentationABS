@@ -54,6 +54,20 @@ namespace DocumentationABS.Documentation
  
 	public string CurrentXmlFile;
 	
+	public Tuple<string, string>[] GetGeneratorContent(params string[] xmlFileNames)
+	{
+		List<DocumentFile> result = new List<DocumentFile>();
+		foreach(string xmlFileName in xmlFileNames)
+		{
+			DocumentationAbstractionType abs = LoadXml<DocumentationAbstractionType>(xmlFileName);
+			foreach(DocumentType doc in abs.Documentations.Documents) {
+				DocumentFile docFile = GenerateDocumentFile(doc);
+				result.Add(docFile);
+			}
+		}
+		return result.Select(docFile => Tuple.Create(docFile.Name, docFile.Content)).ToArray();
+	}
+	
 	void GenerateDocument(DocumentType document)
 	{
 		GenerateHtmlAndHeadWithStyle();
@@ -109,35 +123,35 @@ namespace DocumentationABS.Documentation
         #line default
         #line hidden
         
-        #line 75 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 89 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(headerBeginTag));
 
         
         #line default
         #line hidden
         
-        #line 75 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 89 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(header.text));
 
         
         #line default
         #line hidden
         
-        #line 75 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 89 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(headerEndTag));
 
         
         #line default
         #line hidden
         
-        #line 75 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 89 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write("\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 76 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 90 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 
 		foreach(TextType text in header.Paragraph ?? new TextType[0])
 			GenerateParagraph(text);
@@ -153,42 +167,42 @@ this.Write("\r\n\t\t");
         #line default
         #line hidden
         
-        #line 86 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 100 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write("<p class=\"MsoNormal\"");
 
         
         #line default
         #line hidden
         
-        #line 87 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 101 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(styleText));
 
         
         #line default
         #line hidden
         
-        #line 87 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 101 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write(" >\r\n");
 
         
         #line default
         #line hidden
         
-        #line 88 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 102 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(text.TextContent));
 
         
         #line default
         #line hidden
         
-        #line 88 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 102 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write("\r\n</p>\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 90 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 104 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 
 	}
 	
@@ -199,7 +213,7 @@ this.Write("\r\n</p>\r\n\t\t");
         #line default
         #line hidden
         
-        #line 95 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 109 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write("<div style=\'border:none;border-bottom:solid #4F81BD 1.0pt;padding:0cm 0cm 4.0pt 0" +
         "cm\'>\r\n<p class=\"MsoTitle\">");
 
@@ -207,21 +221,21 @@ this.Write("<div style=\'border:none;border-bottom:solid #4F81BD 1.0pt;padding:0
         #line default
         #line hidden
         
-        #line 97 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 111 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(title));
 
         
         #line default
         #line hidden
         
-        #line 97 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 111 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write("</p>\r\n</div>\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 99 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 113 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 
 	}
 	
@@ -233,28 +247,28 @@ this.Write("</p>\r\n</div>\r\n\t\t");
         #line default
         #line hidden
         
-        #line 105 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 119 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write("\t\t");
 
         
         #line default
         #line hidden
         
-        #line 106 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 120 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(rowStr));
 
         
         #line default
         #line hidden
         
-        #line 106 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 120 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write("\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 107 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 121 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 
 		}
 	
@@ -265,14 +279,14 @@ this.Write("\r\n\t\t");
         #line default
         #line hidden
         
-        #line 112 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 126 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write("\t\t<tr>\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 114 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 128 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 
 		foreach(string item in data)
 		{
@@ -282,28 +296,28 @@ this.Write("\t\t<tr>\r\n\t\t");
         #line default
         #line hidden
         
-        #line 118 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 132 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write("\t\t");
 
         
         #line default
         #line hidden
         
-        #line 119 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 133 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(rowStr));
 
         
         #line default
         #line hidden
         
-        #line 119 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 133 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write("\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 120 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 134 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 
 		}
 		
@@ -311,14 +325,14 @@ this.Write("\r\n\t\t");
         #line default
         #line hidden
         
-        #line 122 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 136 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write("\t\t</tr>\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 124 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 138 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 
 	}
 /*	
@@ -350,70 +364,70 @@ this.Write("\t\t</tr>\r\n\t\t");
         #line default
         #line hidden
         
-        #line 150 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 164 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write("<");
 
         
         #line default
         #line hidden
         
-        #line 151 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 165 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(sectionHeaderType));
 
         
         #line default
         #line hidden
         
-        #line 151 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 165 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write("><a name=\"");
 
         
         #line default
         #line hidden
         
-        #line 151 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 165 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(sectionTagName));
 
         
         #line default
         #line hidden
         
-        #line 151 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 165 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write("\"><span lang=EN-US>");
 
         
         #line default
         #line hidden
         
-        #line 151 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 165 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(sectionTitle));
 
         
         #line default
         #line hidden
         
-        #line 151 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 165 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write("</span></a></");
 
         
         #line default
         #line hidden
         
-        #line 151 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 165 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(sectionHeaderType));
 
         
         #line default
         #line hidden
         
-        #line 151 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 165 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write(">\r\n<p class=MsoNormal>\r\n<table>\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 154 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 168 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 
 		populateContents();		
 		
@@ -421,14 +435,14 @@ this.Write(">\r\n<p class=MsoNormal>\r\n<table>\r\n\t\t");
         #line default
         #line hidden
         
-        #line 156 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 170 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write("</table>\r\n</p>\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 159 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 173 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 
 	}
 
@@ -468,14 +482,14 @@ this.Write("</table>\r\n</p>\r\n\t\t");
         #line default
         #line hidden
         
-        #line 193 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 207 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write("<body lang=EN link=blue vlink=purple>\r\n\r\n<div class=WordSection1>\r\n\r\n\t\t\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 199 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 213 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 
 	}
 
@@ -486,14 +500,14 @@ this.Write("<body lang=EN link=blue vlink=purple>\r\n\r\n<div class=WordSection1
         #line default
         #line hidden
         
-        #line 204 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 218 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write("</div>\r\n\r\n</body>\r\n</html>\r\n\t\t\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 210 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 224 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 
 		
 	}
@@ -506,21 +520,21 @@ this.Write("</div>\r\n\r\n</body>\r\n</html>\r\n\t\t\r\n\t\t");
         #line default
         #line hidden
         
-        #line 217 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 231 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write("<html>\r\n<head>\r\n<meta http-equiv=Content-Type content=\"text/html; charset=");
 
         
         #line default
         #line hidden
         
-        #line 220 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 234 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(charset));
 
         
         #line default
         #line hidden
         
-        #line 220 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 234 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write("\">\r\n<meta name=Generator content=\"Microsoft Word 14 (filtered)\">\r\n\r\n<style>\r\n<!--" +
         "\r\n /* Font Definitions */\r\n @font-face\r\n\t{font-family:Cambria;\r\n\tpanose-1:2 4 5 " +
         "3 5 4 6 3 2 4;}\r\n@font-face\r\n\t{font-family:Calibri;\r\n\tpanose-1:2 15 5 2 2 2 4 3 " +
@@ -585,7 +599,7 @@ this.Write("\">\r\n<meta name=Generator content=\"Microsoft Word 14 (filtered)\"
         #line default
         #line hidden
         
-        #line 414 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 428 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 
 	}
 
@@ -593,7 +607,7 @@ this.Write("\">\r\n<meta name=Generator content=\"Microsoft Word 14 (filtered)\"
         #line default
         #line hidden
         
-        #line 417 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 431 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
  
 	#region Class Level Variable Block
 	
