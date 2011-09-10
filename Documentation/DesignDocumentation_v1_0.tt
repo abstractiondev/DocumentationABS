@@ -1,5 +1,5 @@
 ﻿<#@ template debug="true" hostSpecific="true" language="C#v3.5" #>
-<#@ output extension=".designer.cs" #>
+<#@ output extension=".html" #>
 <#@ Assembly Name="System.Core.dll" #>
 <#@ Assembly Name="System.Xml.dll" #>
 <#@ Assembly Name="System.Xml.Linq.dll" #>
@@ -15,58 +15,87 @@
 <#@ import namespace="System.Collections.Generic" #> 
 <#@ include file="..\Common\CommonCodeblocks.ttinclude" #>
 <#@ include file="Documentation_v1_0.ttinclude" #>
-
-<html>
-
 <#   
-	string templateDirectoryName = Path.GetDirectoryName(Host.TemplateFile);
-	string directoryName = templateDirectoryName + @"\Content_v1_0";
-	directoryName = directoryName.Replace("DocumentationABS", "AbstractionContent");
-	string[] xmlFileNames = Directory.GetFiles(directoryName, "*.xml");
-	
-	GenerateHeadWithStyle();
-	GenerateBodyStart();
-
-	foreach(string xmlFileName in xmlFileNames)
-	{
-		//throw new NotSupportedException(xmlFileName);
-		//Operation_v1_0.OperationAbstractionType abstraction = LoadXml<Operation_v1_0.OperationAbstractionType>(xmlFileName);
-		//GenerateBody(abstraction);
-		//Operation_v1_0.OperationsType operations = abstraction.Operations;
-		//BeginNamespace(operations.codeNamespace);
-		//foreach(var operation in operations.Operation)
-		//	GenerateOperation(operation);
-		//EndBlock();
-		//PowerPointAddIn_v1_0.PowerPointAddInAbstraction abstraction = LoadXml<PowerPointAddIn_v1_0.PowerPointAddInAbstraction>(xmlFileName);
-		//GenerateAddInBase(abstraction);
-	}
-	GenerateBodyEnd();
-
+	GenerateDocument(CurrentDocument);
 #>
-
-</html>
 <#+ 
-/*
-	void GenerateBody(Operation_v1_0.OperationAbstractionType abstraction)
+	public string CurrentXmlFile;
+	
+	void GenerateDocument(DocumentType document)
 	{
-		GenerateTitle(abstraction);
-		GenerateTOC(abstraction);
-		foreach(var operation in abstraction.Operations.Operation)
-		{
-			CurrOperation = operation;
-			GenerateOperation(operation);
-		}
+		GenerateHtmlAndHeadWithStyle();
+		GenerateBodyStart();
+		GenerateBody(document);
+		GenerateBodyEnd();
 	}
-*/
-	void GenerateTitle(object obj)
+	
+	private DocumentType CurrentDocument;
+	
+	public DocumentFile GenerateDocumentFile(DocumentType document)
+	{
+		DocumentFile result = new DocumentFile();
+		GenerationEnvironment.Clear();
+		result.Name = document.name + ".doc";
+		CurrentDocument = document;
+		result.Content = TransformText();
+		return result;
+	}
+	
+	public DocumentFile[] GenerateDocuments()
+	{
+		List<DocumentFile> result = new List<DocumentFile>();
+		string templateDirectoryName = Path.GetDirectoryName(Host.TemplateFile);
+		string directoryName = templateDirectoryName + @"\Content_v1_0";
+		directoryName = directoryName.Replace("DocumentationABS", "AbstractionContent");
+		string[] xmlFileNames = Directory.GetFiles(directoryName, "*.xml");
+		foreach(string xmlFileName in xmlFileNames)
+		{
+			DocumentationAbstractionType abs = LoadXml<DocumentationAbstractionType>(xmlFileName);
+			foreach(DocumentType doc in abs.Documentations.Documents) {
+				DocumentFile docFile = GenerateDocumentFile(doc);
+				result.Add(docFile);
+			}
+		}
+		return result.ToArray();
+	}
+	
+	void GenerateBody(DocumentType document)
+	{
+		GenerateTitle(document.title);
+		//GenerateTOC(abstraction);
+		foreach(HeaderType header in document.Content ?? new HeaderType[0])
+			GenerateHeaderAndContent(header);
+	}
+	
+	void GenerateHeaderAndContent(HeaderType header)
+	{
+		string headerBeginTag = "<h" + header.level + ">";
+		string headerEndTag = "</h" + header.level + ">";
+		#>
+<#= headerBeginTag #><#= header.text #><#= headerEndTag  #>
+		<#+
+		foreach(TextType text in header.Paragraph ?? new TextType[0])
+			GenerateParagraph(text);
+		foreach(HeaderType subHeader in header.Header ?? new HeaderType[0])
+			GenerateHeaderAndContent(subHeader);
+	}
+	
+	void GenerateParagraph(TextType text)
+	{
+		string styleText = text.styleRef != null ? " style=\"" + text.styleRef + "\"" : "";
+		#>
+<p class="MsoNormal"<#= styleText #> >
+<#= text.TextContent #>
+</p>
+		<#+
+	}
+	
+	void GenerateTitle(string title)
 	{
 		#>
 <div style='border:none;border-bottom:solid #4F81BD 1.0pt;padding:0cm 0cm 4.0pt 0cm'>
-<p class=MsoTitle>Operations Documentation</p>
+<p class="MsoTitle"><#= title #></p>
 </div>
-<h1><span lang=EN-US>About</span></h1>
-<p class=MsoNormal>Auto-generated design documentation for operations.</p>
-		
 		<#+
 	}
 	
@@ -176,16 +205,19 @@
 </div>
 
 </body>
+</html>
 		
 		<#+
 		
 	}
 	
-	void GenerateHeadWithStyle()
+	void GenerateHtmlAndHeadWithStyle()
 	{
+		string charset = System.Text.Encoding.UTF8.WebName;
 		#>
+<html>
 <head>
-<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta http-equiv=Content-Type content="text/html; charset=<#= charset #>">
 <meta name=Generator content="Microsoft Word 14 (filtered)">
 
 <style>
