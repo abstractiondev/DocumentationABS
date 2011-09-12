@@ -88,20 +88,57 @@
 		#>
 <#= headerBeginTag #><#= header.text #><#= headerEndTag  #>
 		<#+
-		foreach(TextType text in header.Paragraph ?? new TextType[0])
-			GenerateParagraph(text);
+		if(header.Paragraph != null)
+		{
+			foreach(ParagraphType paragraph in header.Paragraph)
+			{
+				GenerateParagraph(paragraph.Items);
+			}
+		}
 		foreach(HeaderType subHeader in header.Header ?? new HeaderType[0])
 			GenerateHeaderAndContent(subHeader);
 	}
 	
-	void GenerateParagraph(TextType text)
+	void GenerateParagraphText(TextType text)
 	{
 		string styleText = text.styleRef != null ? " style=\"" + text.styleRef + "\"" : "";
 		#>
-<p class="MsoNormal"<#= styleText #> >
-<#= text.TextContent #>
-</p>
+		<div class="MsoNormal"<#= styleText #> >
+		<#= text.TextContent #>
+		</div>
 		<#+
+	}
+	
+	void GenerateParagraphTable(TableType table)
+	{
+		GenerateTableWithContents(() =>
+		{
+			string[] headerData = table.Columns.Select(col => col.name).ToArray();
+			GenerateTableHeaderRow(headerData);
+			if(table.Rows != null) 
+			{
+				foreach(TextType[] colData in table.Rows)
+					GenerateTableRowFromData(colData);
+				//	GenerateTableRowFromData
+			}
+		});
+	}
+	
+	void GenerateParagraph(object[] items)
+	{
+		#><p><#+
+		foreach(object item in items ?? new object[0]) 
+		{
+			TextType text = item as TextType;
+			TableType table = item as TableType;
+			if(text != null)
+				GenerateParagraphText(text);
+			else if(table != null)
+				GenerateParagraphTable(table);
+			else
+				throw new NotSupportedException("Paragraph type: " + item.GetType().Name);
+		}
+		#></p><#+
 	}
 	
 	void GenerateTitle(string title)
@@ -122,6 +159,25 @@
 		<#= rowStr #>
 		<#+
 		}
+
+	void GenerateTableRowFromData(params TextType[] data)
+	{
+		#>
+		<tr>
+		<#+
+		foreach(TextType text in data)
+		{
+		#>
+		<td>
+		<#+ GenerateParagraphText(text); #>
+		</td>
+		<#+
+		}
+		#>
+		</tr>
+		<#+
+	}
+
 	
 	void GenerateTableRowFromData(string color, params string[] data)
 	{
@@ -166,12 +222,21 @@
 		#>
 <<#= sectionHeaderType #>><a name="<#= sectionTagName #>"><span lang=EN-US><#= sectionTitle #></span></a></<#= sectionHeaderType #>>
 <p class=MsoNormal>
-<table>
+<#+
+		GenerateTableWithContents(populateContents);
+#>
+</p>
+		<#+
+	}
+	
+	void GenerateTableWithContents(Action populateContents)
+	{
+		#>
+<table border="1">
 		<#+
 		populateContents();		
 		#>
 </table>
-</p>
 		<#+
 	}
 

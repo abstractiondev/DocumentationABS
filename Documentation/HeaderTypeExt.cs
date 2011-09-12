@@ -40,14 +40,21 @@ namespace Documentation_v1_0
         {
             if (header == null)
                 throw new ArgumentNullException("header");
-            TextType[] content = (header.Paragraph ?? new TextType[0]).Union(
-                new[]
+            ParagraphType[] content = (header.Paragraph ?? new ParagraphType[0]).Union(
+                new ParagraphType[]
                     {
-                        new TextType
+                        new ParagraphType
                             {
-                                styleRef = styleName,
-                                TextContent = textContent
+                                Items = new object[]
+                                            {
+                                                new TextType
+                                                    {
+                                                        styleRef = styleName,
+                                                        TextContent = textContent
+                                                    }
+                                            }
                             }
+
                     }).ToArray();
             header.Paragraph = content;
         }

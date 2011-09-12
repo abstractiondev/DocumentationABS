@@ -269,6 +269,64 @@ namespace Documentation_v1_0 {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/Operation_v1_0.xsd")]
+    public partial class ColumnType {
+        
+        private string nameField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string name {
+            get {
+                return this.nameField;
+            }
+            set {
+                this.nameField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "2.0.50727.3038")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/Operation_v1_0.xsd")]
+    public partial class TableType {
+        
+        private ColumnType[] columnsField;
+        
+        private TextType[][] rowsField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute("Column", IsNullable=false)]
+        public ColumnType[] Columns {
+            get {
+                return this.columnsField;
+            }
+            set {
+                this.columnsField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute("Row", IsNullable=false)]
+        [System.Xml.Serialization.XmlArrayItemAttribute("ColumnData", IsNullable=false, NestingLevel=1)]
+        public TextType[][] Rows {
+            get {
+                return this.rowsField;
+            }
+            set {
+                this.rowsField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "2.0.50727.3038")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/Operation_v1_0.xsd")]
     public partial class TextType {
         
         private string textContentField;
@@ -303,9 +361,32 @@ namespace Documentation_v1_0 {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/Operation_v1_0.xsd")]
+    public partial class ParagraphType {
+        
+        private object[] itemsField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("Table", typeof(TableType))]
+        [System.Xml.Serialization.XmlElementAttribute("Text", typeof(TextType))]
+        public object[] Items {
+            get {
+                return this.itemsField;
+            }
+            set {
+                this.itemsField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "2.0.50727.3038")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/Operation_v1_0.xsd")]
     public partial class HeaderType {
         
-        private TextType[] paragraphField;
+        private ParagraphType[] paragraphField;
         
         private HeaderType[] headerField;
         
@@ -314,8 +395,8 @@ namespace Documentation_v1_0 {
         private int levelField;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlArrayItemAttribute("Text", IsNullable=false)]
-        public TextType[] Paragraph {
+        [System.Xml.Serialization.XmlElementAttribute("Paragraph")]
+        public ParagraphType[] Paragraph {
             get {
                 return this.paragraphField;
             }

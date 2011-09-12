@@ -4,16 +4,17 @@
 	<xs:element name="DocumentationAbstraction" type="DocumentationAbstractionType"/>
 	<xs:complexType name="HeaderType">
 		<xs:sequence>
-			<xs:element name="Paragraph" type="ParagraphType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Paragraph" type="ParagraphType" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="Header" type="HeaderType" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 		<xs:attribute name="text" type="xs:string" use="required"/>
 		<xs:attribute name="level" type="xs:int" use="required"/>
 	</xs:complexType>
 	<xs:complexType name="ParagraphType">
-		<xs:sequence maxOccurs="1">
-			<xs:element name="Text" type="TextType" maxOccurs="unbounded"/>
-		</xs:sequence>
+		<xs:choice maxOccurs="1">
+			<xs:element name="Text" type="TextType" maxOccurs="1"/>
+			<xs:element name="Table" type="TableType"/>
+		</xs:choice>
 	</xs:complexType>
 	<xs:complexType name="DocumentationAbstractionType">
 		<xs:sequence>
@@ -76,5 +77,29 @@
 			<xs:element name="TextContent" type="xs:string"/>
 		</xs:sequence>
 		<xs:attribute name="styleRef" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="TableType">
+		<xs:sequence>
+			<xs:element name="Columns" type="ColumnsType"/>
+			<xs:element name="Rows" type="RowsType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ColumnsType">
+		<xs:sequence>
+			<xs:element name="Column" type="ColumnType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ColumnType">
+		<xs:attribute name="name" type="xs:string" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="RowsType">
+		<xs:sequence>
+			<xs:element name="Row" type="RowType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RowType">
+		<xs:sequence>
+			<xs:element name="ColumnData" type="TextType" maxOccurs="unbounded"/>
+		</xs:sequence>
 	</xs:complexType>
 </xs:schema>
