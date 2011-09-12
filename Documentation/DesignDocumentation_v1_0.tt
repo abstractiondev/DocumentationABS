@@ -106,6 +106,8 @@
 	
 	void GenerateTitle(string title)
 	{
+		if(title == null)
+			throw new ArgumentNullException("title");
 		#>
 <div style='border:none;border-bottom:solid #4F81BD 1.0pt;padding:0cm 0cm 4.0pt 0cm'>
 <p class="MsoTitle"><#= title #></p>
