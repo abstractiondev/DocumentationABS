@@ -45,14 +45,11 @@ namespace Documentation_v1_0
                     {
                         new ParagraphType
                             {
-                                Items = new object[]
-                                            {
-                                                new TextType
+                                Item =          new TextType
                                                     {
                                                         styleRef = styleName,
                                                         TextContent = textContent
                                                     }
-                                            }
                             }
 
                     }).ToArray();

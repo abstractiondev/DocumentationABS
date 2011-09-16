@@ -157,7 +157,7 @@ this.Write("\r\n\t\t");
 		{
 			foreach(ParagraphType paragraph in header.Paragraph)
 			{
-				GenerateParagraph(paragraph.Items);
+				GenerateParagraph(new object[] { paragraph.Item });
 			}
 		}
 		foreach(HeaderType subHeader in header.Header ?? new HeaderType[0])
@@ -1222,17 +1222,17 @@ public partial class TextType {
 [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/Operation_v1_0.xsd")]
 public partial class ParagraphType {
     
-    private object[] itemsField;
+    private object itemField;
     
     /// <remarks/>
     [System.Xml.Serialization.XmlElementAttribute("Table", typeof(TableType))]
     [System.Xml.Serialization.XmlElementAttribute("Text", typeof(TextType))]
-    public object[] Items {
+    public object Item {
         get {
-            return this.itemsField;
+            return this.itemField;
         }
         set {
-            this.itemsField = value;
+            this.itemField = value;
         }
     }
 }

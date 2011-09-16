@@ -92,7 +92,7 @@
 		{
 			foreach(ParagraphType paragraph in header.Paragraph)
 			{
-				GenerateParagraph(paragraph.Items);
+				GenerateParagraph(new object[] { paragraph.Item });
 			}
 		}
 		foreach(HeaderType subHeader in header.Header ?? new HeaderType[0])

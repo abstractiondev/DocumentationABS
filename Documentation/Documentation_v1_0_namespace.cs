@@ -363,17 +363,17 @@ namespace Documentation_v1_0 {
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/Operation_v1_0.xsd")]
     public partial class ParagraphType {
         
-        private object[] itemsField;
+        private object itemField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute("Table", typeof(TableType))]
         [System.Xml.Serialization.XmlElementAttribute("Text", typeof(TextType))]
-        public object[] Items {
+        public object Item {
             get {
-                return this.itemsField;
+                return this.itemField;
             }
             set {
-                this.itemsField = value;
+                this.itemField = value;
             }
         }
     }
