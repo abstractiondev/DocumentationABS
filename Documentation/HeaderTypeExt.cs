@@ -19,6 +19,19 @@ namespace Documentation_v1_0
             header.Header = content;
         }
 
+        public static void AddSubHeaderTableContent(this HeaderType header, string headerText, TableType tableContent)
+        {
+            if(header == null)
+                throw new ArgumentNullException("header");
+            HeaderType subHeader = new HeaderType
+            {
+                text = headerText,
+                level = header.level + 1,
+            };
+            subHeader.AddHeaderTableContent(tableContent);
+            header.AddSubHeader(subHeader);
+        }
+
         public static void AddSubHeaderTextContent(this HeaderType header, string headerText, string styleName, string textContent)
         {
             if (header == null)
@@ -37,6 +50,22 @@ namespace Documentation_v1_0
             if(header == null)
                 throw new ArgumentNullException("header");
             header.AddHeaderTextContent(styleName, textContent);
+        }
+
+        public static void AddHeaderTableContent(this HeaderType header, TableType tableContent)
+        {
+            if (header == null)
+                throw new ArgumentNullException("header");
+            ParagraphType[] content = (header.Paragraph ?? new ParagraphType[0]).Union(
+                new ParagraphType[]
+                    {
+                        new ParagraphType
+                            {
+                                Item = tableContent
+                            }
+
+                    }).ToArray();
+            header.Paragraph = content;
         }
 
         public static void AddHeaderTextContent(this HeaderType header, string styleName, string textContent)
