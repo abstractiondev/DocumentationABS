@@ -19,7 +19,7 @@ namespace Documentation_v1_0
             header.Header = content;
         }
 
-        public static void AddSubHeaderTableContent(this HeaderType header, string headerText, TableType tableContent)
+        public static HeaderType AddSubHeaderTableContent(this HeaderType header, string headerText, TableType tableContent)
         {
             if(header == null)
                 throw new ArgumentNullException("header");
@@ -30,9 +30,10 @@ namespace Documentation_v1_0
             };
             subHeader.AddHeaderTableContent(tableContent);
             header.AddSubHeader(subHeader);
+            return subHeader;
         }
 
-        public static void AddSubHeaderTextContent(this HeaderType header, string headerText, string styleName, string textContent)
+        public static HeaderType AddSubHeaderTextContent(this HeaderType header, string headerText, string styleName, string textContent)
         {
             if (header == null)
                 throw new ArgumentNullException("header");
@@ -43,6 +44,7 @@ namespace Documentation_v1_0
                                        };
             subHeader.AddHeaderTextContent(styleName, textContent);
             header.AddSubHeader(subHeader);
+            return subHeader;
         }
 
         public static void SetHeaderTextContent(this HeaderType header, string styleName, string textContent)
