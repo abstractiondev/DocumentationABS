@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using Microsoft.VisualStudio.TextTemplating;
 
 namespace Documentation_v1_0
 {
@@ -8,6 +7,10 @@ namespace Documentation_v1_0
     {
         public static void AddSubHeader(this HeaderType header, HeaderType subHeader)
         {
+            if(header == null)
+                throw new ArgumentNullException("header");
+            if (subHeader == null)
+                return;
             HeaderType[] content = (header.Header ?? new HeaderType[0]).Union(
                 new[]
                     {

@@ -49,6 +49,7 @@
     </Compile>
     <Compile Include="Documentation\Documentation_v1_0_namespace.cs" />
     <Compile Include="Documentation\DocumentFile.cs" />
+    <Compile Include="Documentation\DocumentTypeExt.cs" />
     <Compile Include="Documentation\HeaderTypeExt.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
