@@ -101,6 +101,8 @@
 	
 	void GenerateParagraphText(TextType text)
 	{
+		if(text.TextContent == null)
+			return;
 		string styleText = text.styleRef != null ? " style=\"" + text.styleRef + "\"" : "";
 		#>
 		<div class="MsoNormal"<#= styleText #> >
