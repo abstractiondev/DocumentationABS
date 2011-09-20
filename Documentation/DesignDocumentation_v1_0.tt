@@ -181,43 +181,6 @@
 	}
 
 	
-	void GenerateTableRowFromData(string color, params string[] data)
-	{
-		#>
-		<tr>
-		<#+
-		foreach(string item in data)
-		{
-			string rowStr = "<td><div class=MsoNormal style=\"color:" + color + "\">" + item + "</div></td>";
-		#>
-		<#= rowStr #>
-		<#+
-		}
-		#>
-		</tr>
-		<#+
-	}
-/*	
-	string GetStatusColor(Operation_v1_0.VariableTypeState state)
-	{
-		return GetStatusColor(state.ToString());
-	}*/
-	
-	string GetStatusColor(string stateString)
-	{
-		switch(stateString)
-		{
-			case "underDesign":
-				return "red";
-			case "designApproved":
-				return "blue";
-			case "implemented":
-				return "black";
-			default:
-				throw new NotSupportedException("StateString: " + stateString);
-		}
-	}
-	
 	void GenerateTableSectionWithContents(string sectionHeaderType, string sectionTitle, Action populateContents)
 	{
 		string sectionTagName = ""; // GetOperationTagName(sectionTitle);
@@ -316,6 +279,30 @@
 	{font-family:Tahoma;
 	panose-1:2 11 6 4 3 5 4 4 2 4;}
  /* Style Definitions */
+ p.MsoNormalRed, li.MsoNormalRed, div.MsoNormalRed
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:10.0pt;
+	margin-left:0cm;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";
+	font-weight:bold;
+	text-decoration:underline;
+	color:Red;
+	}
+ p.MsoNormalBlue, li.MsoNormalBlue, div.MsoNormalBlue
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:10.0pt;
+	margin-left:0cm;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";
+	font-weight:bold;
+	font-style:italic;
+	color:Blue;
+	}
  p.MsoNormal, li.MsoNormal, div.MsoNormal
 	{margin-top:0cm;
 	margin-right:0cm;
@@ -323,7 +310,8 @@
 	margin-left:0cm;
 	line-height:115%;
 	font-size:11.0pt;
-	font-family:"Calibri","sans-serif";}
+	font-family:"Calibri","sans-serif";
+	}
 h1
 	{mso-style-link:"Heading 1 Char";
 	margin-top:24.0pt;

@@ -402,90 +402,6 @@ this.Write("\t\t</tr>\r\n\t\t");
 	}
 
 	
-	void GenerateTableRowFromData(string color, params string[] data)
-	{
-		
-        
-        #line default
-        #line hidden
-        
-        #line 186 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
-this.Write("\t\t<tr>\r\n\t\t");
-
-        
-        #line default
-        #line hidden
-        
-        #line 188 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
-
-		foreach(string item in data)
-		{
-			string rowStr = "<td><div class=MsoNormal style=\"color:" + color + "\">" + item + "</div></td>";
-		
-        
-        #line default
-        #line hidden
-        
-        #line 192 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
-this.Write("\t\t");
-
-        
-        #line default
-        #line hidden
-        
-        #line 193 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
-this.Write(this.ToStringHelper.ToStringWithCulture(rowStr));
-
-        
-        #line default
-        #line hidden
-        
-        #line 193 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
-this.Write("\r\n\t\t");
-
-        
-        #line default
-        #line hidden
-        
-        #line 194 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
-
-		}
-		
-        
-        #line default
-        #line hidden
-        
-        #line 196 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
-this.Write("\t\t</tr>\r\n\t\t");
-
-        
-        #line default
-        #line hidden
-        
-        #line 198 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
-
-	}
-/*	
-	string GetStatusColor(Operation_v1_0.VariableTypeState state)
-	{
-		return GetStatusColor(state.ToString());
-	}*/
-	
-	string GetStatusColor(string stateString)
-	{
-		switch(stateString)
-		{
-			case "underDesign":
-				return "red";
-			case "designApproved":
-				return "blue";
-			case "implemented":
-				return "black";
-			default:
-				throw new NotSupportedException("StateString: " + stateString);
-		}
-	}
-	
 	void GenerateTableSectionWithContents(string sectionHeaderType, string sectionTitle, Action populateContents)
 	{
 		string sectionTagName = ""; // GetOperationTagName(sectionTitle);
@@ -494,70 +410,70 @@ this.Write("\t\t</tr>\r\n\t\t");
         #line default
         #line hidden
         
-        #line 224 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 187 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write("<");
 
         
         #line default
         #line hidden
         
-        #line 225 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 188 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(sectionHeaderType));
 
         
         #line default
         #line hidden
         
-        #line 225 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 188 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write("><a name=\"");
 
         
         #line default
         #line hidden
         
-        #line 225 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 188 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(sectionTagName));
 
         
         #line default
         #line hidden
         
-        #line 225 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 188 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write("\"><span lang=EN-US>");
 
         
         #line default
         #line hidden
         
-        #line 225 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 188 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(sectionTitle));
 
         
         #line default
         #line hidden
         
-        #line 225 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 188 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write("</span></a></");
 
         
         #line default
         #line hidden
         
-        #line 225 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 188 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(sectionHeaderType));
 
         
         #line default
         #line hidden
         
-        #line 225 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 188 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write(">\r\n<p class=MsoNormal>\r\n");
 
         
         #line default
         #line hidden
         
-        #line 227 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 190 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 
 		GenerateTableWithContents(populateContents);
 
@@ -565,14 +481,14 @@ this.Write(">\r\n<p class=MsoNormal>\r\n");
         #line default
         #line hidden
         
-        #line 229 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 192 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write("</p>\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 231 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 194 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 
 	}
 	
@@ -583,14 +499,14 @@ this.Write("</p>\r\n\t\t");
         #line default
         #line hidden
         
-        #line 236 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 199 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write("<table border=\"1\">\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 238 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 201 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 
 		populateContents();		
 		
@@ -598,14 +514,14 @@ this.Write("<table border=\"1\">\r\n\t\t");
         #line default
         #line hidden
         
-        #line 240 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 203 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write("</table>\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 242 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 205 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 
 	}
 
@@ -645,14 +561,14 @@ this.Write("</table>\r\n\t\t");
         #line default
         #line hidden
         
-        #line 276 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 239 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write("<body lang=EN link=blue vlink=purple>\r\n\r\n<div class=WordSection1>\r\n\r\n\t\t\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 282 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 245 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 
 	}
 
@@ -663,14 +579,14 @@ this.Write("<body lang=EN link=blue vlink=purple>\r\n\r\n<div class=WordSection1
         #line default
         #line hidden
         
-        #line 287 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 250 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write("</div>\r\n\r\n</body>\r\n</html>\r\n\t\t\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 293 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 256 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 
 		
 	}
@@ -683,86 +599,93 @@ this.Write("</div>\r\n\r\n</body>\r\n</html>\r\n\t\t\r\n\t\t");
         #line default
         #line hidden
         
-        #line 300 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 263 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write("<html>\r\n<head>\r\n<meta http-equiv=Content-Type content=\"text/html; charset=");
 
         
         #line default
         #line hidden
         
-        #line 303 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 266 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(charset));
 
         
         #line default
         #line hidden
         
-        #line 303 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 266 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write("\">\r\n<meta name=Generator content=\"Microsoft Word 14 (filtered)\">\r\n\r\n<style>\r\n<!--" +
         "\r\n /* Font Definitions */\r\n @font-face\r\n\t{font-family:Cambria;\r\n\tpanose-1:2 4 5 " +
         "3 5 4 6 3 2 4;}\r\n@font-face\r\n\t{font-family:Calibri;\r\n\tpanose-1:2 15 5 2 2 2 4 3 " +
         "2 4;}\r\n@font-face\r\n\t{font-family:Tahoma;\r\n\tpanose-1:2 11 6 4 3 5 4 4 2 4;}\r\n /* " +
-        "Style Definitions */\r\n p.MsoNormal, li.MsoNormal, div.MsoNormal\r\n\t{margin-top:0c" +
-        "m;\r\n\tmargin-right:0cm;\r\n\tmargin-bottom:10.0pt;\r\n\tmargin-left:0cm;\r\n\tline-height:" +
-        "115%;\r\n\tfont-size:11.0pt;\r\n\tfont-family:\"Calibri\",\"sans-serif\";}\r\nh1\r\n\t{mso-styl" +
-        "e-link:\"Heading 1 Char\";\r\n\tmargin-top:24.0pt;\r\n\tmargin-right:0cm;\r\n\tmargin-botto" +
-        "m:0cm;\r\n\tmargin-left:0cm;\r\n\tmargin-bottom:.0001pt;\r\n\tline-height:115%;\r\n\tpage-br" +
-        "eak-after:avoid;\r\n\tfont-size:14.0pt;\r\n\tfont-family:\"Cambria\",\"serif\";\r\n\tcolor:#3" +
-        "65F91;}\r\nh2\r\n\t{mso-style-link:\"Heading 2 Char\";\r\n\tmargin-top:10.0pt;\r\n\tmargin-ri" +
-        "ght:0cm;\r\n\tmargin-bottom:0cm;\r\n\tmargin-left:0cm;\r\n\tmargin-bottom:.0001pt;\r\n\tline" +
-        "-height:115%;\r\n\tpage-break-after:avoid;\r\n\tfont-size:13.0pt;\r\n\tfont-family:\"Cambr" +
-        "ia\",\"serif\";\r\n\tcolor:#4F81BD;}\r\nh3\r\n\t{mso-style-link:\"Heading 3 Char\";\r\n\tmargin-" +
-        "top:10.0pt;\r\n\tmargin-right:0cm;\r\n\tmargin-bottom:0cm;\r\n\tmargin-left:0cm;\r\n\tmargin" +
-        "-bottom:.0001pt;\r\n\tline-height:115%;\r\n\tpage-break-after:avoid;\r\n\tfont-size:11.0p" +
-        "t;\r\n\tfont-family:\"Cambria\",\"serif\";\r\n\tcolor:#4F81BD;}\r\np.MsoToc1, li.MsoToc1, di" +
-        "v.MsoToc1\r\n\t{margin-top:0cm;\r\n\tmargin-right:0cm;\r\n\tmargin-bottom:5.0pt;\r\n\tmargin" +
-        "-left:0cm;\r\n\tline-height:115%;\r\n\tfont-size:11.0pt;\r\n\tfont-family:\"Calibri\",\"sans" +
-        "-serif\";}\r\np.MsoToc2, li.MsoToc2, div.MsoToc2\r\n\t{margin-top:0cm;\r\n\tmargin-right:" +
-        "0cm;\r\n\tmargin-bottom:5.0pt;\r\n\tmargin-left:11.0pt;\r\n\tline-height:115%;\r\n\tfont-siz" +
-        "e:11.0pt;\r\n\tfont-family:\"Calibri\",\"sans-serif\";}\r\np.MsoToc3, li.MsoToc3, div.Mso" +
-        "Toc3\r\n\t{margin-top:0cm;\r\n\tmargin-right:0cm;\r\n\tmargin-bottom:5.0pt;\r\n\tmargin-left" +
-        ":22.0pt;\r\n\tline-height:115%;\r\n\tfont-size:11.0pt;\r\n\tfont-family:\"Calibri\",\"sans-s" +
-        "erif\";}\r\np.MsoTitle, li.MsoTitle, div.MsoTitle\r\n\t{mso-style-link:\"Title Char\";\r\n" +
-        "\tmargin-top:0cm;\r\n\tmargin-right:0cm;\r\n\tmargin-bottom:15.0pt;\r\n\tmargin-left:0cm;\r" +
-        "\n\tborder:none;\r\n\tpadding:0cm;\r\n\tfont-size:26.0pt;\r\n\tfont-family:\"Cambria\",\"serif" +
-        "\";\r\n\tcolor:#17365D;\r\n\tletter-spacing:.25pt;}\r\np.MsoTitleCxSpFirst, li.MsoTitleCx" +
-        "SpFirst, div.MsoTitleCxSpFirst\r\n\t{mso-style-link:\"Title Char\";\r\n\tmargin:0cm;\r\n\tm" +
-        "argin-bottom:.0001pt;\r\n\tborder:none;\r\n\tpadding:0cm;\r\n\tfont-size:26.0pt;\r\n\tfont-f" +
-        "amily:\"Cambria\",\"serif\";\r\n\tcolor:#17365D;\r\n\tletter-spacing:.25pt;}\r\np.MsoTitleCx" +
-        "SpMiddle, li.MsoTitleCxSpMiddle, div.MsoTitleCxSpMiddle\r\n\t{mso-style-link:\"Title" +
-        " Char\";\r\n\tmargin:0cm;\r\n\tmargin-bottom:.0001pt;\r\n\tborder:none;\r\n\tpadding:0cm;\r\n\tf" +
-        "ont-size:26.0pt;\r\n\tfont-family:\"Cambria\",\"serif\";\r\n\tcolor:#17365D;\r\n\tletter-spac" +
-        "ing:.25pt;}\r\np.MsoTitleCxSpLast, li.MsoTitleCxSpLast, div.MsoTitleCxSpLast\r\n\t{ms" +
-        "o-style-link:\"Title Char\";\r\n\tmargin-top:0cm;\r\n\tmargin-right:0cm;\r\n\tmargin-bottom" +
-        ":15.0pt;\r\n\tmargin-left:0cm;\r\n\tborder:none;\r\n\tpadding:0cm;\r\n\tfont-size:26.0pt;\r\n\t" +
-        "font-family:\"Cambria\",\"serif\";\r\n\tcolor:#17365D;\r\n\tletter-spacing:.25pt;}\r\na:link" +
-        ", span.MsoHyperlink\r\n\t{color:blue;\r\n\ttext-decoration:underline;}\r\na:visited, spa" +
-        "n.MsoHyperlinkFollowed\r\n\t{color:purple;\r\n\ttext-decoration:underline;}\r\np.MsoAcet" +
-        "ate, li.MsoAcetate, div.MsoAcetate\r\n\t{mso-style-link:\"Balloon Text Char\";\r\n\tmarg" +
-        "in:0cm;\r\n\tmargin-bottom:.0001pt;\r\n\tfont-size:8.0pt;\r\n\tfont-family:\"Tahoma\",\"sans" +
-        "-serif\";}\r\np.MsoTocHeading, li.MsoTocHeading, div.MsoTocHeading\r\n\t{margin-top:24" +
-        ".0pt;\r\n\tmargin-right:0cm;\r\n\tmargin-bottom:0cm;\r\n\tmargin-left:0cm;\r\n\tmargin-botto" +
-        "m:.0001pt;\r\n\tline-height:115%;\r\n\tpage-break-after:avoid;\r\n\tfont-size:14.0pt;\r\n\tf" +
-        "ont-family:\"Cambria\",\"serif\";\r\n\tcolor:#365F91;\r\n\tfont-weight:bold;}\r\nspan.TitleC" +
-        "har\r\n\t{mso-style-name:\"Title Char\";\r\n\tmso-style-link:Title;\r\n\tfont-family:\"Cambr" +
-        "ia\",\"serif\";\r\n\tcolor:#17365D;\r\n\tletter-spacing:.25pt;}\r\nspan.Heading1Char\r\n\t{mso" +
-        "-style-name:\"Heading 1 Char\";\r\n\tmso-style-link:\"Heading 1\";\r\n\tfont-family:\"Cambr" +
-        "ia\",\"serif\";\r\n\tcolor:#365F91;\r\n\tfont-weight:bold;}\r\nspan.Heading2Char\r\n\t{mso-sty" +
-        "le-name:\"Heading 2 Char\";\r\n\tmso-style-link:\"Heading 2\";\r\n\tfont-family:\"Cambria\"," +
-        "\"serif\";\r\n\tcolor:#4F81BD;\r\n\tfont-weight:bold;}\r\nspan.Heading3Char\r\n\t{mso-style-n" +
-        "ame:\"Heading 3 Char\";\r\n\tmso-style-link:\"Heading 3\";\r\n\tfont-family:\"Cambria\",\"ser" +
-        "if\";\r\n\tcolor:#4F81BD;\r\n\tfont-weight:bold;}\r\nspan.BalloonTextChar\r\n\t{mso-style-na" +
-        "me:\"Balloon Text Char\";\r\n\tmso-style-link:\"Balloon Text\";\r\n\tfont-family:\"Tahoma\"," +
-        "\"sans-serif\";}\r\n.MsoChpDefault\r\n\t{font-family:\"Calibri\",\"sans-serif\";}\r\n.MsoPapD" +
-        "efault\r\n\t{margin-bottom:10.0pt;\r\n\tline-height:115%;}\r\n@page WordSection1\r\n\t{size" +
-        ":595.3pt 841.9pt;\r\n\tmargin:70.85pt 2.0cm 70.85pt 2.0cm;}\r\ndiv.WordSection1\r\n\t{pa" +
-        "ge:WordSection1;}\r\n-->\r\n</style>\r\n\r\n</head>\r\n\t\t");
+        "Style Definitions */\r\n p.MsoNormalRed, li.MsoNormalRed, div.MsoNormalRed\r\n\t{marg" +
+        "in-top:0cm;\r\n\tmargin-right:0cm;\r\n\tmargin-bottom:10.0pt;\r\n\tmargin-left:0cm;\r\n\tlin" +
+        "e-height:115%;\r\n\tfont-size:11.0pt;\r\n\tfont-family:\"Calibri\",\"sans-serif\";\r\n\tfont-" +
+        "weight:bold;\r\n\ttext-decoration:underline;\r\n\tcolor:Red;\r\n\t}\r\n p.MsoNormalBlue, li" +
+        ".MsoNormalBlue, div.MsoNormalBlue\r\n\t{margin-top:0cm;\r\n\tmargin-right:0cm;\r\n\tmargi" +
+        "n-bottom:10.0pt;\r\n\tmargin-left:0cm;\r\n\tline-height:115%;\r\n\tfont-size:11.0pt;\r\n\tfo" +
+        "nt-family:\"Calibri\",\"sans-serif\";\r\n\tfont-weight:bold;\r\n\tfont-style:italic;\r\n\tcol" +
+        "or:Blue;\r\n\t}\r\n p.MsoNormal, li.MsoNormal, div.MsoNormal\r\n\t{margin-top:0cm;\r\n\tmar" +
+        "gin-right:0cm;\r\n\tmargin-bottom:10.0pt;\r\n\tmargin-left:0cm;\r\n\tline-height:115%;\r\n\t" +
+        "font-size:11.0pt;\r\n\tfont-family:\"Calibri\",\"sans-serif\";\r\n\t}\r\nh1\r\n\t{mso-style-lin" +
+        "k:\"Heading 1 Char\";\r\n\tmargin-top:24.0pt;\r\n\tmargin-right:0cm;\r\n\tmargin-bottom:0cm" +
+        ";\r\n\tmargin-left:0cm;\r\n\tmargin-bottom:.0001pt;\r\n\tline-height:115%;\r\n\tpage-break-a" +
+        "fter:avoid;\r\n\tfont-size:14.0pt;\r\n\tfont-family:\"Cambria\",\"serif\";\r\n\tcolor:#365F91" +
+        ";}\r\nh2\r\n\t{mso-style-link:\"Heading 2 Char\";\r\n\tmargin-top:10.0pt;\r\n\tmargin-right:0" +
+        "cm;\r\n\tmargin-bottom:0cm;\r\n\tmargin-left:0cm;\r\n\tmargin-bottom:.0001pt;\r\n\tline-heig" +
+        "ht:115%;\r\n\tpage-break-after:avoid;\r\n\tfont-size:13.0pt;\r\n\tfont-family:\"Cambria\",\"" +
+        "serif\";\r\n\tcolor:#4F81BD;}\r\nh3\r\n\t{mso-style-link:\"Heading 3 Char\";\r\n\tmargin-top:1" +
+        "0.0pt;\r\n\tmargin-right:0cm;\r\n\tmargin-bottom:0cm;\r\n\tmargin-left:0cm;\r\n\tmargin-bott" +
+        "om:.0001pt;\r\n\tline-height:115%;\r\n\tpage-break-after:avoid;\r\n\tfont-size:11.0pt;\r\n\t" +
+        "font-family:\"Cambria\",\"serif\";\r\n\tcolor:#4F81BD;}\r\np.MsoToc1, li.MsoToc1, div.Mso" +
+        "Toc1\r\n\t{margin-top:0cm;\r\n\tmargin-right:0cm;\r\n\tmargin-bottom:5.0pt;\r\n\tmargin-left" +
+        ":0cm;\r\n\tline-height:115%;\r\n\tfont-size:11.0pt;\r\n\tfont-family:\"Calibri\",\"sans-seri" +
+        "f\";}\r\np.MsoToc2, li.MsoToc2, div.MsoToc2\r\n\t{margin-top:0cm;\r\n\tmargin-right:0cm;\r" +
+        "\n\tmargin-bottom:5.0pt;\r\n\tmargin-left:11.0pt;\r\n\tline-height:115%;\r\n\tfont-size:11." +
+        "0pt;\r\n\tfont-family:\"Calibri\",\"sans-serif\";}\r\np.MsoToc3, li.MsoToc3, div.MsoToc3\r" +
+        "\n\t{margin-top:0cm;\r\n\tmargin-right:0cm;\r\n\tmargin-bottom:5.0pt;\r\n\tmargin-left:22.0" +
+        "pt;\r\n\tline-height:115%;\r\n\tfont-size:11.0pt;\r\n\tfont-family:\"Calibri\",\"sans-serif\"" +
+        ";}\r\np.MsoTitle, li.MsoTitle, div.MsoTitle\r\n\t{mso-style-link:\"Title Char\";\r\n\tmarg" +
+        "in-top:0cm;\r\n\tmargin-right:0cm;\r\n\tmargin-bottom:15.0pt;\r\n\tmargin-left:0cm;\r\n\tbor" +
+        "der:none;\r\n\tpadding:0cm;\r\n\tfont-size:26.0pt;\r\n\tfont-family:\"Cambria\",\"serif\";\r\n\t" +
+        "color:#17365D;\r\n\tletter-spacing:.25pt;}\r\np.MsoTitleCxSpFirst, li.MsoTitleCxSpFir" +
+        "st, div.MsoTitleCxSpFirst\r\n\t{mso-style-link:\"Title Char\";\r\n\tmargin:0cm;\r\n\tmargin" +
+        "-bottom:.0001pt;\r\n\tborder:none;\r\n\tpadding:0cm;\r\n\tfont-size:26.0pt;\r\n\tfont-family" +
+        ":\"Cambria\",\"serif\";\r\n\tcolor:#17365D;\r\n\tletter-spacing:.25pt;}\r\np.MsoTitleCxSpMid" +
+        "dle, li.MsoTitleCxSpMiddle, div.MsoTitleCxSpMiddle\r\n\t{mso-style-link:\"Title Char" +
+        "\";\r\n\tmargin:0cm;\r\n\tmargin-bottom:.0001pt;\r\n\tborder:none;\r\n\tpadding:0cm;\r\n\tfont-s" +
+        "ize:26.0pt;\r\n\tfont-family:\"Cambria\",\"serif\";\r\n\tcolor:#17365D;\r\n\tletter-spacing:." +
+        "25pt;}\r\np.MsoTitleCxSpLast, li.MsoTitleCxSpLast, div.MsoTitleCxSpLast\r\n\t{mso-sty" +
+        "le-link:\"Title Char\";\r\n\tmargin-top:0cm;\r\n\tmargin-right:0cm;\r\n\tmargin-bottom:15.0" +
+        "pt;\r\n\tmargin-left:0cm;\r\n\tborder:none;\r\n\tpadding:0cm;\r\n\tfont-size:26.0pt;\r\n\tfont-" +
+        "family:\"Cambria\",\"serif\";\r\n\tcolor:#17365D;\r\n\tletter-spacing:.25pt;}\r\na:link, spa" +
+        "n.MsoHyperlink\r\n\t{color:blue;\r\n\ttext-decoration:underline;}\r\na:visited, span.Mso" +
+        "HyperlinkFollowed\r\n\t{color:purple;\r\n\ttext-decoration:underline;}\r\np.MsoAcetate, " +
+        "li.MsoAcetate, div.MsoAcetate\r\n\t{mso-style-link:\"Balloon Text Char\";\r\n\tmargin:0c" +
+        "m;\r\n\tmargin-bottom:.0001pt;\r\n\tfont-size:8.0pt;\r\n\tfont-family:\"Tahoma\",\"sans-seri" +
+        "f\";}\r\np.MsoTocHeading, li.MsoTocHeading, div.MsoTocHeading\r\n\t{margin-top:24.0pt;" +
+        "\r\n\tmargin-right:0cm;\r\n\tmargin-bottom:0cm;\r\n\tmargin-left:0cm;\r\n\tmargin-bottom:.00" +
+        "01pt;\r\n\tline-height:115%;\r\n\tpage-break-after:avoid;\r\n\tfont-size:14.0pt;\r\n\tfont-f" +
+        "amily:\"Cambria\",\"serif\";\r\n\tcolor:#365F91;\r\n\tfont-weight:bold;}\r\nspan.TitleChar\r\n" +
+        "\t{mso-style-name:\"Title Char\";\r\n\tmso-style-link:Title;\r\n\tfont-family:\"Cambria\",\"" +
+        "serif\";\r\n\tcolor:#17365D;\r\n\tletter-spacing:.25pt;}\r\nspan.Heading1Char\r\n\t{mso-styl" +
+        "e-name:\"Heading 1 Char\";\r\n\tmso-style-link:\"Heading 1\";\r\n\tfont-family:\"Cambria\",\"" +
+        "serif\";\r\n\tcolor:#365F91;\r\n\tfont-weight:bold;}\r\nspan.Heading2Char\r\n\t{mso-style-na" +
+        "me:\"Heading 2 Char\";\r\n\tmso-style-link:\"Heading 2\";\r\n\tfont-family:\"Cambria\",\"seri" +
+        "f\";\r\n\tcolor:#4F81BD;\r\n\tfont-weight:bold;}\r\nspan.Heading3Char\r\n\t{mso-style-name:\"" +
+        "Heading 3 Char\";\r\n\tmso-style-link:\"Heading 3\";\r\n\tfont-family:\"Cambria\",\"serif\";\r" +
+        "\n\tcolor:#4F81BD;\r\n\tfont-weight:bold;}\r\nspan.BalloonTextChar\r\n\t{mso-style-name:\"B" +
+        "alloon Text Char\";\r\n\tmso-style-link:\"Balloon Text\";\r\n\tfont-family:\"Tahoma\",\"sans" +
+        "-serif\";}\r\n.MsoChpDefault\r\n\t{font-family:\"Calibri\",\"sans-serif\";}\r\n.MsoPapDefaul" +
+        "t\r\n\t{margin-bottom:10.0pt;\r\n\tline-height:115%;}\r\n@page WordSection1\r\n\t{size:595." +
+        "3pt 841.9pt;\r\n\tmargin:70.85pt 2.0cm 70.85pt 2.0cm;}\r\ndiv.WordSection1\r\n\t{page:Wo" +
+        "rdSection1;}\r\n-->\r\n</style>\r\n\r\n</head>\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 497 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 485 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 
 	}
 
@@ -770,7 +693,7 @@ this.Write("\">\r\n<meta name=Generator content=\"Microsoft Word 14 (filtered)\"
         #line default
         #line hidden
         
-        #line 500 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 488 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
  
 	#region Class Level Variable Block
 	

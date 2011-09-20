@@ -11,6 +11,7 @@ namespace Documentation_v1_0
                 throw new ArgumentNullException("header");
             if (subHeader == null)
                 return;
+            subHeader.level = header.level + 1;
             HeaderType[] content = (header.Header ?? new HeaderType[0]).Union(
                 new[]
                     {
