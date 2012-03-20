@@ -20,7 +20,7 @@ namespace DocumentationABS.Documentation
     using System.Collections.Generic;
     
     
-    #line 1 "C:\GitHub\kallex\private\Demos\ProjectStatusReportingDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+    #line 1 "C:\GitHub\abstractiondev\TFSProcessIntegrationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "10.0.0.0")]
     public partial class DesignDocumentation_v1_0 : DesignDocumentation_v1_0Base
     {
@@ -28,7 +28,7 @@ namespace DocumentationABS.Documentation
         {
             this.Write(" \r\n");
             
-            #line 18 "C:\GitHub\kallex\private\Demos\ProjectStatusReportingDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+            #line 18 "C:\GitHub\abstractiondev\TFSProcessIntegrationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
    
 	GenerateDocument(CurrentDocument);
 
@@ -50,7 +50,7 @@ namespace DocumentationABS.Documentation
             }
         }
         
-        #line 21 "C:\GitHub\kallex\private\Demos\ProjectStatusReportingDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 21 "C:\GitHub\abstractiondev\TFSProcessIntegrationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
  
 	public string CurrentXmlFile;
 	
@@ -123,35 +123,35 @@ namespace DocumentationABS.Documentation
         #line default
         #line hidden
         
-        #line 89 "C:\GitHub\kallex\private\Demos\ProjectStatusReportingDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 89 "C:\GitHub\abstractiondev\TFSProcessIntegrationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(headerBeginTag));
 
         
         #line default
         #line hidden
         
-        #line 89 "C:\GitHub\kallex\private\Demos\ProjectStatusReportingDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 89 "C:\GitHub\abstractiondev\TFSProcessIntegrationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(header.text));
 
         
         #line default
         #line hidden
         
-        #line 89 "C:\GitHub\kallex\private\Demos\ProjectStatusReportingDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 89 "C:\GitHub\abstractiondev\TFSProcessIntegrationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(headerEndTag));
 
         
         #line default
         #line hidden
         
-        #line 89 "C:\GitHub\kallex\private\Demos\ProjectStatusReportingDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 89 "C:\GitHub\abstractiondev\TFSProcessIntegrationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write("\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 90 "C:\GitHub\kallex\private\Demos\ProjectStatusReportingDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 90 "C:\GitHub\abstractiondev\TFSProcessIntegrationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 
 		if(header.Paragraph != null)
 		{
@@ -174,42 +174,42 @@ this.Write("\r\n\t\t");
         #line default
         #line hidden
         
-        #line 107 "C:\GitHub\kallex\private\Demos\ProjectStatusReportingDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 107 "C:\GitHub\abstractiondev\TFSProcessIntegrationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write("\t\t<div class=\"MsoNormal\"");
 
         
         #line default
         #line hidden
         
-        #line 108 "C:\GitHub\kallex\private\Demos\ProjectStatusReportingDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 108 "C:\GitHub\abstractiondev\TFSProcessIntegrationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(styleText));
 
         
         #line default
         #line hidden
         
-        #line 108 "C:\GitHub\kallex\private\Demos\ProjectStatusReportingDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 108 "C:\GitHub\abstractiondev\TFSProcessIntegrationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write(" >\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 109 "C:\GitHub\kallex\private\Demos\ProjectStatusReportingDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 109 "C:\GitHub\abstractiondev\TFSProcessIntegrationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(text.TextContent));
 
         
         #line default
         #line hidden
         
-        #line 109 "C:\GitHub\kallex\private\Demos\ProjectStatusReportingDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 109 "C:\GitHub\abstractiondev\TFSProcessIntegrationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write("\r\n\t\t</div>\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 111 "C:\GitHub\kallex\private\Demos\ProjectStatusReportingDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 111 "C:\GitHub\abstractiondev\TFSProcessIntegrationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 
 	}
 	
@@ -235,14 +235,14 @@ this.Write("\r\n\t\t</div>\r\n\t\t");
         #line default
         #line hidden
         
-        #line 131 "C:\GitHub\kallex\private\Demos\ProjectStatusReportingDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 131 "C:\GitHub\abstractiondev\TFSProcessIntegrationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write("<p>");
 
         
         #line default
         #line hidden
         
-        #line 131 "C:\GitHub\kallex\private\Demos\ProjectStatusReportingDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 131 "C:\GitHub\abstractiondev\TFSProcessIntegrationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 
 		foreach(object item in items ?? new object[0]) 
 		{
@@ -260,14 +260,14 @@ this.Write("<p>");
         #line default
         #line hidden
         
-        #line 143 "C:\GitHub\kallex\private\Demos\ProjectStatusReportingDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 143 "C:\GitHub\abstractiondev\TFSProcessIntegrationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write("</p>");
 
         
         #line default
         #line hidden
         
-        #line 143 "C:\GitHub\kallex\private\Demos\ProjectStatusReportingDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 143 "C:\GitHub\abstractiondev\TFSProcessIntegrationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 
 	}
 	
@@ -280,7 +280,7 @@ this.Write("</p>");
         #line default
         #line hidden
         
-        #line 150 "C:\GitHub\kallex\private\Demos\ProjectStatusReportingDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 150 "C:\GitHub\abstractiondev\TFSProcessIntegrationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write("<div style=\'border:none;border-bottom:solid #4F81BD 1.0pt;padding:0cm 0cm 4.0pt 0" +
         "cm\'>\r\n<p class=\"MsoTitle\">");
 
@@ -288,21 +288,21 @@ this.Write("<div style=\'border:none;border-bottom:solid #4F81BD 1.0pt;padding:0
         #line default
         #line hidden
         
-        #line 152 "C:\GitHub\kallex\private\Demos\ProjectStatusReportingDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 152 "C:\GitHub\abstractiondev\TFSProcessIntegrationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(title));
 
         
         #line default
         #line hidden
         
-        #line 152 "C:\GitHub\kallex\private\Demos\ProjectStatusReportingDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 152 "C:\GitHub\abstractiondev\TFSProcessIntegrationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write("</p>\r\n</div>\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 154 "C:\GitHub\kallex\private\Demos\ProjectStatusReportingDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 154 "C:\GitHub\abstractiondev\TFSProcessIntegrationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 
 	}
 	
@@ -314,28 +314,28 @@ this.Write("</p>\r\n</div>\r\n\t\t");
         #line default
         #line hidden
         
-        #line 160 "C:\GitHub\kallex\private\Demos\ProjectStatusReportingDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 160 "C:\GitHub\abstractiondev\TFSProcessIntegrationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write("\t\t");
 
         
         #line default
         #line hidden
         
-        #line 161 "C:\GitHub\kallex\private\Demos\ProjectStatusReportingDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 161 "C:\GitHub\abstractiondev\TFSProcessIntegrationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(rowStr));
 
         
         #line default
         #line hidden
         
-        #line 161 "C:\GitHub\kallex\private\Demos\ProjectStatusReportingDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 161 "C:\GitHub\abstractiondev\TFSProcessIntegrationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write("\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 162 "C:\GitHub\kallex\private\Demos\ProjectStatusReportingDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 162 "C:\GitHub\abstractiondev\TFSProcessIntegrationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 
 		}
 
@@ -346,14 +346,14 @@ this.Write("\r\n\t\t");
         #line default
         #line hidden
         
-        #line 167 "C:\GitHub\kallex\private\Demos\ProjectStatusReportingDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 167 "C:\GitHub\abstractiondev\TFSProcessIntegrationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write("\t\t<tr>\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 169 "C:\GitHub\kallex\private\Demos\ProjectStatusReportingDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 169 "C:\GitHub\abstractiondev\TFSProcessIntegrationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 
 		foreach(TextType text in data)
 		{
@@ -362,27 +362,27 @@ this.Write("\t\t<tr>\r\n\t\t");
         #line default
         #line hidden
         
-        #line 172 "C:\GitHub\kallex\private\Demos\ProjectStatusReportingDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 172 "C:\GitHub\abstractiondev\TFSProcessIntegrationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write("\t\t<td>\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 174 "C:\GitHub\kallex\private\Demos\ProjectStatusReportingDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 174 "C:\GitHub\abstractiondev\TFSProcessIntegrationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
  GenerateParagraphText(text); 
         
         #line default
         #line hidden
         
-        #line 174 "C:\GitHub\kallex\private\Demos\ProjectStatusReportingDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 174 "C:\GitHub\abstractiondev\TFSProcessIntegrationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write("\t\t</td>\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 176 "C:\GitHub\kallex\private\Demos\ProjectStatusReportingDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 176 "C:\GitHub\abstractiondev\TFSProcessIntegrationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 
 		}
 		
@@ -390,14 +390,14 @@ this.Write("\t\t</td>\r\n\t\t");
         #line default
         #line hidden
         
-        #line 178 "C:\GitHub\kallex\private\Demos\ProjectStatusReportingDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 178 "C:\GitHub\abstractiondev\TFSProcessIntegrationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write("\t\t</tr>\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 180 "C:\GitHub\kallex\private\Demos\ProjectStatusReportingDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 180 "C:\GitHub\abstractiondev\TFSProcessIntegrationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 
 	}
 
@@ -410,70 +410,70 @@ this.Write("\t\t</tr>\r\n\t\t");
         #line default
         #line hidden
         
-        #line 187 "C:\GitHub\kallex\private\Demos\ProjectStatusReportingDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 187 "C:\GitHub\abstractiondev\TFSProcessIntegrationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write("<");
 
         
         #line default
         #line hidden
         
-        #line 188 "C:\GitHub\kallex\private\Demos\ProjectStatusReportingDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 188 "C:\GitHub\abstractiondev\TFSProcessIntegrationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(sectionHeaderType));
 
         
         #line default
         #line hidden
         
-        #line 188 "C:\GitHub\kallex\private\Demos\ProjectStatusReportingDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 188 "C:\GitHub\abstractiondev\TFSProcessIntegrationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write("><a name=\"");
 
         
         #line default
         #line hidden
         
-        #line 188 "C:\GitHub\kallex\private\Demos\ProjectStatusReportingDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 188 "C:\GitHub\abstractiondev\TFSProcessIntegrationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(sectionTagName));
 
         
         #line default
         #line hidden
         
-        #line 188 "C:\GitHub\kallex\private\Demos\ProjectStatusReportingDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 188 "C:\GitHub\abstractiondev\TFSProcessIntegrationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write("\"><span lang=EN-US>");
 
         
         #line default
         #line hidden
         
-        #line 188 "C:\GitHub\kallex\private\Demos\ProjectStatusReportingDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 188 "C:\GitHub\abstractiondev\TFSProcessIntegrationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(sectionTitle));
 
         
         #line default
         #line hidden
         
-        #line 188 "C:\GitHub\kallex\private\Demos\ProjectStatusReportingDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 188 "C:\GitHub\abstractiondev\TFSProcessIntegrationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write("</span></a></");
 
         
         #line default
         #line hidden
         
-        #line 188 "C:\GitHub\kallex\private\Demos\ProjectStatusReportingDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 188 "C:\GitHub\abstractiondev\TFSProcessIntegrationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(sectionHeaderType));
 
         
         #line default
         #line hidden
         
-        #line 188 "C:\GitHub\kallex\private\Demos\ProjectStatusReportingDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 188 "C:\GitHub\abstractiondev\TFSProcessIntegrationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write(">\r\n<p class=MsoNormal>\r\n");
 
         
         #line default
         #line hidden
         
-        #line 190 "C:\GitHub\kallex\private\Demos\ProjectStatusReportingDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 190 "C:\GitHub\abstractiondev\TFSProcessIntegrationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 
 		GenerateTableWithContents(populateContents);
 
@@ -481,14 +481,14 @@ this.Write(">\r\n<p class=MsoNormal>\r\n");
         #line default
         #line hidden
         
-        #line 192 "C:\GitHub\kallex\private\Demos\ProjectStatusReportingDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 192 "C:\GitHub\abstractiondev\TFSProcessIntegrationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write("</p>\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 194 "C:\GitHub\kallex\private\Demos\ProjectStatusReportingDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 194 "C:\GitHub\abstractiondev\TFSProcessIntegrationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 
 	}
 	
@@ -499,14 +499,14 @@ this.Write("</p>\r\n\t\t");
         #line default
         #line hidden
         
-        #line 199 "C:\GitHub\kallex\private\Demos\ProjectStatusReportingDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 199 "C:\GitHub\abstractiondev\TFSProcessIntegrationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write("<table border=\"1\">\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 201 "C:\GitHub\kallex\private\Demos\ProjectStatusReportingDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 201 "C:\GitHub\abstractiondev\TFSProcessIntegrationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 
 		populateContents();		
 		
@@ -514,14 +514,14 @@ this.Write("<table border=\"1\">\r\n\t\t");
         #line default
         #line hidden
         
-        #line 203 "C:\GitHub\kallex\private\Demos\ProjectStatusReportingDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 203 "C:\GitHub\abstractiondev\TFSProcessIntegrationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write("</table>\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 205 "C:\GitHub\kallex\private\Demos\ProjectStatusReportingDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 205 "C:\GitHub\abstractiondev\TFSProcessIntegrationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 
 	}
 
@@ -561,14 +561,14 @@ this.Write("</table>\r\n\t\t");
         #line default
         #line hidden
         
-        #line 239 "C:\GitHub\kallex\private\Demos\ProjectStatusReportingDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 239 "C:\GitHub\abstractiondev\TFSProcessIntegrationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write("<body lang=EN link=blue vlink=purple>\r\n\r\n<div class=WordSection1>\r\n\r\n\t\t\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 245 "C:\GitHub\kallex\private\Demos\ProjectStatusReportingDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 245 "C:\GitHub\abstractiondev\TFSProcessIntegrationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 
 	}
 
@@ -579,14 +579,14 @@ this.Write("<body lang=EN link=blue vlink=purple>\r\n\r\n<div class=WordSection1
         #line default
         #line hidden
         
-        #line 250 "C:\GitHub\kallex\private\Demos\ProjectStatusReportingDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 250 "C:\GitHub\abstractiondev\TFSProcessIntegrationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write("</div>\r\n\r\n</body>\r\n</html>\r\n\t\t\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 256 "C:\GitHub\kallex\private\Demos\ProjectStatusReportingDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 256 "C:\GitHub\abstractiondev\TFSProcessIntegrationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 
 		
 	}
@@ -599,21 +599,21 @@ this.Write("</div>\r\n\r\n</body>\r\n</html>\r\n\t\t\r\n\t\t");
         #line default
         #line hidden
         
-        #line 263 "C:\GitHub\kallex\private\Demos\ProjectStatusReportingDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 263 "C:\GitHub\abstractiondev\TFSProcessIntegrationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write("<html>\r\n<head>\r\n<meta http-equiv=Content-Type content=\"text/html; charset=");
 
         
         #line default
         #line hidden
         
-        #line 266 "C:\GitHub\kallex\private\Demos\ProjectStatusReportingDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 266 "C:\GitHub\abstractiondev\TFSProcessIntegrationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(charset));
 
         
         #line default
         #line hidden
         
-        #line 266 "C:\GitHub\kallex\private\Demos\ProjectStatusReportingDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 266 "C:\GitHub\abstractiondev\TFSProcessIntegrationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 this.Write("\">\r\n<meta name=Generator content=\"Microsoft Word 14 (filtered)\">\r\n\r\n<style>\r\n<!--" +
         "\r\n /* Font Definitions */\r\n @font-face\r\n\t{font-family:Cambria;\r\n\tpanose-1:2 4 5 " +
         "3 5 4 6 3 2 4;}\r\n@font-face\r\n\t{font-family:Calibri;\r\n\tpanose-1:2 15 5 2 2 2 4 3 " +
@@ -685,7 +685,7 @@ this.Write("\">\r\n<meta name=Generator content=\"Microsoft Word 14 (filtered)\"
         #line default
         #line hidden
         
-        #line 485 "C:\GitHub\kallex\private\Demos\ProjectStatusReportingDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 485 "C:\GitHub\abstractiondev\TFSProcessIntegrationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
 
 	}
 
@@ -693,7 +693,7 @@ this.Write("\">\r\n<meta name=Generator content=\"Microsoft Word 14 (filtered)\"
         #line default
         #line hidden
         
-        #line 488 "C:\GitHub\kallex\private\Demos\ProjectStatusReportingDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 488 "C:\GitHub\abstractiondev\TFSProcessIntegrationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
  
 	#region Class Level Variable Block
 	
@@ -705,7 +705,7 @@ this.Write("\">\r\n<meta name=Generator content=\"Microsoft Word 14 (filtered)\"
         #line default
         #line hidden
         
-        #line 1 "C:\GitHub\kallex\private\Demos\ProjectStatusReportingDemo\Abstractions\DocumentationABS\Documentation\..\Common\CommonCodeblocks.ttinclude"
+        #line 1 "C:\GitHub\abstractiondev\TFSProcessIntegrationDemo\Abstractions\DocumentationABS\Documentation\..\Common\CommonCodeblocks.ttinclude"
  
 	T LoadXml<T>(string xmlFileName) {
 		using(FileStream fStream = File.OpenRead(xmlFileName)) {
@@ -722,28 +722,28 @@ this.Write("\">\r\n<meta name=Generator content=\"Microsoft Word 14 (filtered)\"
         #line default
         #line hidden
         
-        #line 12 "C:\GitHub\kallex\private\Demos\ProjectStatusReportingDemo\Abstractions\DocumentationABS\Documentation\..\Common\CommonCodeblocks.ttinclude"
+        #line 12 "C:\GitHub\abstractiondev\TFSProcessIntegrationDemo\Abstractions\DocumentationABS\Documentation\..\Common\CommonCodeblocks.ttinclude"
 this.Write("namespace ");
 
         
         #line default
         #line hidden
         
-        #line 12 "C:\GitHub\kallex\private\Demos\ProjectStatusReportingDemo\Abstractions\DocumentationABS\Documentation\..\Common\CommonCodeblocks.ttinclude"
+        #line 12 "C:\GitHub\abstractiondev\TFSProcessIntegrationDemo\Abstractions\DocumentationABS\Documentation\..\Common\CommonCodeblocks.ttinclude"
 this.Write(this.ToStringHelper.ToStringWithCulture(namespaceName));
 
         
         #line default
         #line hidden
         
-        #line 12 "C:\GitHub\kallex\private\Demos\ProjectStatusReportingDemo\Abstractions\DocumentationABS\Documentation\..\Common\CommonCodeblocks.ttinclude"
+        #line 12 "C:\GitHub\abstractiondev\TFSProcessIntegrationDemo\Abstractions\DocumentationABS\Documentation\..\Common\CommonCodeblocks.ttinclude"
 this.Write(" { \r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 13 "C:\GitHub\kallex\private\Demos\ProjectStatusReportingDemo\Abstractions\DocumentationABS\Documentation\..\Common\CommonCodeblocks.ttinclude"
+        #line 13 "C:\GitHub\abstractiondev\TFSProcessIntegrationDemo\Abstractions\DocumentationABS\Documentation\..\Common\CommonCodeblocks.ttinclude"
  
 	}
 
@@ -753,14 +753,14 @@ this.Write(" { \r\n\t\t");
         #line default
         #line hidden
         
-        #line 17 "C:\GitHub\kallex\private\Demos\ProjectStatusReportingDemo\Abstractions\DocumentationABS\Documentation\..\Common\CommonCodeblocks.ttinclude"
+        #line 17 "C:\GitHub\abstractiondev\TFSProcessIntegrationDemo\Abstractions\DocumentationABS\Documentation\..\Common\CommonCodeblocks.ttinclude"
 this.Write(" } ");
 
         
         #line default
         #line hidden
         
-        #line 17 "C:\GitHub\kallex\private\Demos\ProjectStatusReportingDemo\Abstractions\DocumentationABS\Documentation\..\Common\CommonCodeblocks.ttinclude"
+        #line 17 "C:\GitHub\abstractiondev\TFSProcessIntegrationDemo\Abstractions\DocumentationABS\Documentation\..\Common\CommonCodeblocks.ttinclude"
 
 	}
 
@@ -780,12 +780,12 @@ this.Write(" } ");
         #line default
         #line hidden
         
-        #line 1 "C:\GitHub\kallex\private\Demos\ProjectStatusReportingDemo\Abstractions\DocumentationABS\Documentation\Documentation_v1_0.ttinclude"
+        #line 1 "C:\GitHub\abstractiondev\TFSProcessIntegrationDemo\Abstractions\DocumentationABS\Documentation\Documentation_v1_0.ttinclude"
 
 //------------------------------------------------------------------------------
 // <auto-generated>
 //     This code was generated by a tool.
-//     Runtime Version:2.0.50727.5446
+//     Runtime Version:2.0.50727.5448
 //
 //     Changes to this file may cause incorrect behavior and will be lost if
 //     the code is regenerated.
