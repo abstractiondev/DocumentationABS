@@ -1,0 +1,96 @@
+﻿<#@ template debug="true" hostSpecific="true" language="C#v3.5" #>
+<#@ output extension=".html" #>
+<#@ Assembly Name="System.Core.dll" #>
+<#@ Assembly Name="System.Xml.dll" #>
+<#@ Assembly Name="System.Xml.Linq.dll" #>
+<#@ Assembly Name="System.Windows.Forms.dll" #>
+<#@ import namespace="System" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Xml" #>
+<#@ import namespace="System.Xml.Serialization" #>
+<#@ import namespace="System.Diagnostics" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Xml.Linq" #>
+<#@ import namespace="System.Collections" #>
+<#@ import namespace="System.Collections.Generic" #> 
+<#@ include file="..\Common\CommonCodeblocks.ttinclude" #>
+<#@ include file="Documentation_v1_0.ttinclude" #>
+<#   
+	GenerateDocument(CurrentDocument);
+#>
+<#+ 
+	public string CurrentXmlFile;
+	
+	public Tuple<string, string>[] GetGeneratorContent(params string[] xmlFileNames)
+	{
+		List<DocumentFile> result = new List<DocumentFile>();
+		foreach(string xmlFileName in xmlFileNames)
+		{
+			DocumentationAbstractionType abs = LoadXml<DocumentationAbstractionType>(xmlFileName);
+			foreach(DocumentType doc in abs.Documentations.Documents) {
+				DocumentFile docFile = GenerateDocumentFile(doc);
+				result.Add(docFile);
+			}
+		}
+		return result.Select(docFile => Tuple.Create(docFile.Name, docFile.Content)).ToArray();
+	}
+	
+	void GenerateDocument(DocumentType document)
+	{
+		foreach(HeaderType header in document.Content ?? new HeaderType[0])
+			GenerateLastHeader(header, new HeaderType[0]);
+	}
+	
+	private DocumentType CurrentDocument;
+	
+	public DocumentFile GenerateDocumentFile(DocumentType document)
+	{
+		DocumentFile result = new DocumentFile();
+		GenerationEnvironment.Clear();
+		result.Name = document.name + ".csv";
+		CurrentDocument = document;
+		result.Content = TransformText();
+		return result;
+	}
+	
+	public DocumentFile[] GenerateDocuments()
+	{
+		List<DocumentFile> result = new List<DocumentFile>();
+		string templateDirectoryName = Path.GetDirectoryName(Host.TemplateFile);
+		string directoryName = templateDirectoryName + @"\Content_v1_0";
+		directoryName = directoryName.Replace("DocumentationABS", "AbstractionContent");
+		string[] xmlFileNames = Directory.GetFiles(directoryName, "*.xml");
+		foreach(string xmlFileName in xmlFileNames)
+		{
+			DocumentationAbstractionType abs = LoadXml<DocumentationAbstractionType>(xmlFileName);
+			foreach(DocumentType doc in abs.Documentations.Documents) {
+				DocumentFile docFile = GenerateDocumentFile(doc);
+				result.Add(docFile);
+			}
+		}
+		return result.ToArray();
+	}
+	
+	void GenerateLastHeader(HeaderType header, HeaderType[] predeccors)
+	{
+		List<HeaderType> headerList = new List<HeaderType>(predeccors);
+		headerList.Add(header);
+		HeaderType[] headerListWithCurrent = headerList.ToArray();
+		if(header.Header == null || header.Header.Length == 0) {
+			string[] headerNames = headerListWithCurrent.Select(h => h.text).ToArray();
+			string lineToOutput = string.Join(";", headerNames);
+			this.GenerationEnvironment.AppendLine(lineToOutput);
+		} else {
+			foreach(HeaderType subHeader in header.Header)
+			{
+				GenerateLastHeader(subHeader, headerListWithCurrent);
+			}	
+		}
+	}
+
+	#region Class Level Variable Block
+	
+	//CQRS_v1_0.DomainType CurrentDomain;
+	
+	#endregion
+#>

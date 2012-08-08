@@ -20,15 +20,15 @@ namespace DocumentationABS.Documentation
     using System.Collections.Generic;
     
     
-    #line 1 "C:\tmp\Demo\LogicalOperationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+    #line 1 "C:\tmp\Demo\LogicalOperationDemo\Abstractions\DocumentationABS\Documentation\CSVHierarchyGenerator_v1_0.tt"
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "10.0.0.0")]
-    public partial class DesignDocumentation_v1_0 : DesignDocumentation_v1_0Base
+    public partial class CSVHierarchyGenerator_v1_0 : CSVHierarchyGenerator_v1_0Base
     {
         public virtual string TransformText()
         {
             this.Write(" \r\n");
             
-            #line 18 "C:\tmp\Demo\LogicalOperationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+            #line 18 "C:\tmp\Demo\LogicalOperationDemo\Abstractions\DocumentationABS\Documentation\CSVHierarchyGenerator_v1_0.tt"
    
 	GenerateDocument(CurrentDocument);
 
@@ -50,7 +50,7 @@ namespace DocumentationABS.Documentation
             }
         }
         
-        #line 21 "C:\tmp\Demo\LogicalOperationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
+        #line 21 "C:\tmp\Demo\LogicalOperationDemo\Abstractions\DocumentationABS\Documentation\CSVHierarchyGenerator_v1_0.tt"
  
 	public string CurrentXmlFile;
 	
@@ -70,10 +70,8 @@ namespace DocumentationABS.Documentation
 	
 	void GenerateDocument(DocumentType document)
 	{
-		GenerateHtmlAndHeadWithStyle();
-		GenerateBodyStart();
-		GenerateBody(document);
-		GenerateBodyEnd();
+		foreach(HeaderType header in document.Content ?? new HeaderType[0])
+			GenerateLastHeader(header, new HeaderType[0]);
 	}
 	
 	private DocumentType CurrentDocument;
@@ -82,7 +80,7 @@ namespace DocumentationABS.Documentation
 	{
 		DocumentFile result = new DocumentFile();
 		GenerationEnvironment.Clear();
-		result.Name = document.name + ".doc";
+		result.Name = document.name + ".csv";
 		CurrentDocument = document;
 		result.Content = TransformText();
 		return result;
@@ -106,595 +104,23 @@ namespace DocumentationABS.Documentation
 		return result.ToArray();
 	}
 	
-	void GenerateBody(DocumentType document)
+	void GenerateLastHeader(HeaderType header, HeaderType[] predeccors)
 	{
-		GenerateTitle(document.title);
-		//GenerateTOC(abstraction);
-		foreach(HeaderType header in document.Content ?? new HeaderType[0])
-			GenerateHeaderAndContent(header);
-	}
-	
-	void GenerateHeaderAndContent(HeaderType header)
-	{
-		string headerBeginTag = "<h" + header.level + ">";
-		string headerEndTag = "</h" + header.level + ">";
-		
-        
-        #line default
-        #line hidden
-        
-        #line 89 "C:\tmp\Demo\LogicalOperationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
-this.Write(this.ToStringHelper.ToStringWithCulture(headerBeginTag));
-
-        
-        #line default
-        #line hidden
-        
-        #line 89 "C:\tmp\Demo\LogicalOperationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
-this.Write(this.ToStringHelper.ToStringWithCulture(header.text));
-
-        
-        #line default
-        #line hidden
-        
-        #line 89 "C:\tmp\Demo\LogicalOperationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
-this.Write(this.ToStringHelper.ToStringWithCulture(headerEndTag));
-
-        
-        #line default
-        #line hidden
-        
-        #line 89 "C:\tmp\Demo\LogicalOperationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
-this.Write("\r\n\t\t");
-
-        
-        #line default
-        #line hidden
-        
-        #line 90 "C:\tmp\Demo\LogicalOperationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
-
-		if(header.Paragraph != null)
-		{
-			foreach(ParagraphType paragraph in header.Paragraph)
+		List<HeaderType> headerList = new List<HeaderType>(predeccors);
+		headerList.Add(header);
+		HeaderType[] headerListWithCurrent = headerList.ToArray();
+		if(header.Header == null || header.Header.Length == 0) {
+			string[] headerNames = headerListWithCurrent.Select(h => h.text).ToArray();
+			string lineToOutput = string.Join(";", headerNames);
+			this.GenerationEnvironment.AppendLine(lineToOutput);
+		} else {
+			foreach(HeaderType subHeader in header.Header)
 			{
-				GenerateParagraph(new object[] { paragraph.Item });
-			}
+				GenerateLastHeader(subHeader, headerListWithCurrent);
+			}	
 		}
-		foreach(HeaderType subHeader in header.Header ?? new HeaderType[0])
-			GenerateHeaderAndContent(subHeader);
-	}
-	
-	void GenerateParagraphText(TextType text)
-	{
-		if(text.TextContent == null)
-			return;
-		string styleText = text.styleRef != null ? " style=\"" + text.styleRef + "\"" : "";
-		
-        
-        #line default
-        #line hidden
-        
-        #line 107 "C:\tmp\Demo\LogicalOperationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
-this.Write("\t\t<div class=\"MsoNormal\"");
-
-        
-        #line default
-        #line hidden
-        
-        #line 108 "C:\tmp\Demo\LogicalOperationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
-this.Write(this.ToStringHelper.ToStringWithCulture(styleText));
-
-        
-        #line default
-        #line hidden
-        
-        #line 108 "C:\tmp\Demo\LogicalOperationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
-this.Write(" >\r\n\t\t");
-
-        
-        #line default
-        #line hidden
-        
-        #line 109 "C:\tmp\Demo\LogicalOperationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
-this.Write(this.ToStringHelper.ToStringWithCulture(text.TextContent));
-
-        
-        #line default
-        #line hidden
-        
-        #line 109 "C:\tmp\Demo\LogicalOperationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
-this.Write("\r\n\t\t</div>\r\n\t\t");
-
-        
-        #line default
-        #line hidden
-        
-        #line 111 "C:\tmp\Demo\LogicalOperationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
-
-	}
-	
-	void GenerateParagraphTable(TableType table)
-	{
-		GenerateTableWithContents(() =>
-		{
-			string[] headerData = table.Columns.Select(col => col.name).ToArray();
-			GenerateTableHeaderRow(headerData);
-			if(table.Rows != null) 
-			{
-				foreach(TextType[] colData in table.Rows)
-					GenerateTableRowFromData(colData);
-				//	GenerateTableRowFromData
-			}
-		});
-	}
-	
-	void GenerateParagraph(object[] items)
-	{
-		
-        
-        #line default
-        #line hidden
-        
-        #line 131 "C:\tmp\Demo\LogicalOperationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
-this.Write("<p>");
-
-        
-        #line default
-        #line hidden
-        
-        #line 131 "C:\tmp\Demo\LogicalOperationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
-
-		foreach(object item in items ?? new object[0]) 
-		{
-			TextType text = item as TextType;
-			TableType table = item as TableType;
-			if(text != null)
-				GenerateParagraphText(text);
-			else if(table != null)
-				GenerateParagraphTable(table);
-			else
-				throw new NotSupportedException("Paragraph type: " + item.GetType().Name);
-		}
-		
-        
-        #line default
-        #line hidden
-        
-        #line 143 "C:\tmp\Demo\LogicalOperationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
-this.Write("</p>");
-
-        
-        #line default
-        #line hidden
-        
-        #line 143 "C:\tmp\Demo\LogicalOperationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
-
-	}
-	
-	void GenerateTitle(string title)
-	{
-		if(title == null)
-			throw new ArgumentNullException("title");
-		
-        
-        #line default
-        #line hidden
-        
-        #line 150 "C:\tmp\Demo\LogicalOperationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
-this.Write("<div style=\'border:none;border-bottom:solid #4F81BD 1.0pt;padding:0cm 0cm 4.0pt 0" +
-        "cm\'>\r\n<p class=\"MsoTitle\">");
-
-        
-        #line default
-        #line hidden
-        
-        #line 152 "C:\tmp\Demo\LogicalOperationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
-this.Write(this.ToStringHelper.ToStringWithCulture(title));
-
-        
-        #line default
-        #line hidden
-        
-        #line 152 "C:\tmp\Demo\LogicalOperationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
-this.Write("</p>\r\n</div>\r\n\t\t");
-
-        
-        #line default
-        #line hidden
-        
-        #line 154 "C:\tmp\Demo\LogicalOperationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
-
-	}
-	
-	void GenerateTableHeaderRow(params string[] data)
-	{
-		string rowStr = "<tr>" + String.Join("", data.Select(item => "<th><div class=MsoNormal>" + item + "</div></th>").ToArray()) + "</tr>";
-		
-        
-        #line default
-        #line hidden
-        
-        #line 160 "C:\tmp\Demo\LogicalOperationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
-this.Write("\t\t");
-
-        
-        #line default
-        #line hidden
-        
-        #line 161 "C:\tmp\Demo\LogicalOperationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
-this.Write(this.ToStringHelper.ToStringWithCulture(rowStr));
-
-        
-        #line default
-        #line hidden
-        
-        #line 161 "C:\tmp\Demo\LogicalOperationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
-this.Write("\r\n\t\t");
-
-        
-        #line default
-        #line hidden
-        
-        #line 162 "C:\tmp\Demo\LogicalOperationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
-
-		}
-
-	void GenerateTableRowFromData(params TextType[] data)
-	{
-		
-        
-        #line default
-        #line hidden
-        
-        #line 167 "C:\tmp\Demo\LogicalOperationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
-this.Write("\t\t<tr>\r\n\t\t");
-
-        
-        #line default
-        #line hidden
-        
-        #line 169 "C:\tmp\Demo\LogicalOperationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
-
-		foreach(TextType text in data)
-		{
-		
-        
-        #line default
-        #line hidden
-        
-        #line 172 "C:\tmp\Demo\LogicalOperationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
-this.Write("\t\t<td>\r\n\t\t");
-
-        
-        #line default
-        #line hidden
-        
-        #line 174 "C:\tmp\Demo\LogicalOperationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
- GenerateParagraphText(text); 
-        
-        #line default
-        #line hidden
-        
-        #line 174 "C:\tmp\Demo\LogicalOperationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
-this.Write("\t\t</td>\r\n\t\t");
-
-        
-        #line default
-        #line hidden
-        
-        #line 176 "C:\tmp\Demo\LogicalOperationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
-
-		}
-		
-        
-        #line default
-        #line hidden
-        
-        #line 178 "C:\tmp\Demo\LogicalOperationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
-this.Write("\t\t</tr>\r\n\t\t");
-
-        
-        #line default
-        #line hidden
-        
-        #line 180 "C:\tmp\Demo\LogicalOperationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
-
 	}
 
-	
-	void GenerateTableSectionWithContents(string sectionHeaderType, string sectionTitle, Action populateContents)
-	{
-		string sectionTagName = ""; // GetOperationTagName(sectionTitle);
-		
-        
-        #line default
-        #line hidden
-        
-        #line 187 "C:\tmp\Demo\LogicalOperationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
-this.Write("<");
-
-        
-        #line default
-        #line hidden
-        
-        #line 188 "C:\tmp\Demo\LogicalOperationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
-this.Write(this.ToStringHelper.ToStringWithCulture(sectionHeaderType));
-
-        
-        #line default
-        #line hidden
-        
-        #line 188 "C:\tmp\Demo\LogicalOperationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
-this.Write("><a name=\"");
-
-        
-        #line default
-        #line hidden
-        
-        #line 188 "C:\tmp\Demo\LogicalOperationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
-this.Write(this.ToStringHelper.ToStringWithCulture(sectionTagName));
-
-        
-        #line default
-        #line hidden
-        
-        #line 188 "C:\tmp\Demo\LogicalOperationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
-this.Write("\"><span lang=EN-US>");
-
-        
-        #line default
-        #line hidden
-        
-        #line 188 "C:\tmp\Demo\LogicalOperationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
-this.Write(this.ToStringHelper.ToStringWithCulture(sectionTitle));
-
-        
-        #line default
-        #line hidden
-        
-        #line 188 "C:\tmp\Demo\LogicalOperationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
-this.Write("</span></a></");
-
-        
-        #line default
-        #line hidden
-        
-        #line 188 "C:\tmp\Demo\LogicalOperationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
-this.Write(this.ToStringHelper.ToStringWithCulture(sectionHeaderType));
-
-        
-        #line default
-        #line hidden
-        
-        #line 188 "C:\tmp\Demo\LogicalOperationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
-this.Write(">\r\n<p class=MsoNormal>\r\n");
-
-        
-        #line default
-        #line hidden
-        
-        #line 190 "C:\tmp\Demo\LogicalOperationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
-
-		GenerateTableWithContents(populateContents);
-
-        
-        #line default
-        #line hidden
-        
-        #line 192 "C:\tmp\Demo\LogicalOperationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
-this.Write("</p>\r\n\t\t");
-
-        
-        #line default
-        #line hidden
-        
-        #line 194 "C:\tmp\Demo\LogicalOperationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
-
-	}
-	
-	void GenerateTableWithContents(Action populateContents)
-	{
-		
-        
-        #line default
-        #line hidden
-        
-        #line 199 "C:\tmp\Demo\LogicalOperationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
-this.Write("<table border=\"1\">\r\n\t\t");
-
-        
-        #line default
-        #line hidden
-        
-        #line 201 "C:\tmp\Demo\LogicalOperationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
-
-		populateContents();		
-		
-        
-        #line default
-        #line hidden
-        
-        #line 203 "C:\tmp\Demo\LogicalOperationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
-this.Write("</table>\r\n\t\t");
-
-        
-        #line default
-        #line hidden
-        
-        #line 205 "C:\tmp\Demo\LogicalOperationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
-
-	}
-
-	/*
-	void GenerateOperationParameters(Operation_v1_0.ParametersType parameters)
-	{
-		GenerateTableSectionWithContents("h2", "Parameters", () => {
-			GenerateTableHeaderRow("Name", "DataType", "Description");
-			foreach(var parameter in parameters.Parameter)
-				GenerateTableRowFromData(GetStatusColor(parameter.state), parameter.name, parameter.dataType, parameter.designDesc);
-		});
-		
-		if(parameters.Items == null)
-			return;
-		GenerateTableSectionWithContents("h2", "Parameter Preparation", () => {
-			GenerateTableHeaderRow("Name", "Affected Parameter(s)", "Description");
-			foreach(object obj in parameters.Items)
-			{
-				Operation_v1_0.ValidationType validationItem = obj as Operation_v1_0.ValidationType;
-				Operation_v1_0.ModificationType modificationItem = obj as Operation_v1_0.ModificationType;
-				if(validationItem != null) {
-					GenerateTableRowFromData(GetStatusColor(validationItem.state), 
-						validationItem.name, GetTargetList(", ", validationItem.Target), validationItem.designDesc);
-				} else if(modificationItem != null) {
-					GenerateTableRowFromData(GetStatusColor(modificationItem.state), 
-						modificationItem.name, GetTargetList(", ", modificationItem.Target), modificationItem.designDesc);
-				} else 
-					throw new NotSupportedException("Preparing item type: " + obj.GetType().Name);
-			}
-		});
-	}*/
-
-	void GenerateBodyStart()
-	{
-		
-        
-        #line default
-        #line hidden
-        
-        #line 239 "C:\tmp\Demo\LogicalOperationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
-this.Write("<body lang=EN link=blue vlink=purple>\r\n\r\n<div class=WordSection1>\r\n\r\n\t\t\r\n\t\t");
-
-        
-        #line default
-        #line hidden
-        
-        #line 245 "C:\tmp\Demo\LogicalOperationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
-
-	}
-
-	void GenerateBodyEnd()
-	{
-		
-        
-        #line default
-        #line hidden
-        
-        #line 250 "C:\tmp\Demo\LogicalOperationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
-this.Write("</div>\r\n\r\n</body>\r\n</html>\r\n\t\t\r\n\t\t");
-
-        
-        #line default
-        #line hidden
-        
-        #line 256 "C:\tmp\Demo\LogicalOperationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
-
-		
-	}
-	
-	void GenerateHtmlAndHeadWithStyle()
-	{
-		string charset = System.Text.Encoding.UTF8.WebName;
-		
-        
-        #line default
-        #line hidden
-        
-        #line 263 "C:\tmp\Demo\LogicalOperationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
-this.Write("<html>\r\n<head>\r\n<meta http-equiv=Content-Type content=\"text/html; charset=");
-
-        
-        #line default
-        #line hidden
-        
-        #line 266 "C:\tmp\Demo\LogicalOperationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
-this.Write(this.ToStringHelper.ToStringWithCulture(charset));
-
-        
-        #line default
-        #line hidden
-        
-        #line 266 "C:\tmp\Demo\LogicalOperationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
-this.Write("\">\r\n<meta name=Generator content=\"Microsoft Word 14 (filtered)\">\r\n\r\n<style>\r\n<!--" +
-        "\r\n /* Font Definitions */\r\n @font-face\r\n\t{font-family:Cambria;\r\n\tpanose-1:2 4 5 " +
-        "3 5 4 6 3 2 4;}\r\n@font-face\r\n\t{font-family:Calibri;\r\n\tpanose-1:2 15 5 2 2 2 4 3 " +
-        "2 4;}\r\n@font-face\r\n\t{font-family:Tahoma;\r\n\tpanose-1:2 11 6 4 3 5 4 4 2 4;}\r\n /* " +
-        "Style Definitions */\r\n p.MsoNormalRed, li.MsoNormalRed, div.MsoNormalRed\r\n\t{marg" +
-        "in-top:0cm;\r\n\tmargin-right:0cm;\r\n\tmargin-bottom:10.0pt;\r\n\tmargin-left:0cm;\r\n\tlin" +
-        "e-height:115%;\r\n\tfont-size:11.0pt;\r\n\tfont-family:\"Calibri\",\"sans-serif\";\r\n\tfont-" +
-        "weight:bold;\r\n\ttext-decoration:underline;\r\n\tcolor:Red;\r\n\t}\r\n p.MsoNormalBlue, li" +
-        ".MsoNormalBlue, div.MsoNormalBlue\r\n\t{margin-top:0cm;\r\n\tmargin-right:0cm;\r\n\tmargi" +
-        "n-bottom:10.0pt;\r\n\tmargin-left:0cm;\r\n\tline-height:115%;\r\n\tfont-size:11.0pt;\r\n\tfo" +
-        "nt-family:\"Calibri\",\"sans-serif\";\r\n\tfont-weight:bold;\r\n\tfont-style:italic;\r\n\tcol" +
-        "or:Blue;\r\n\t}\r\n p.MsoNormal, li.MsoNormal, div.MsoNormal\r\n\t{margin-top:0cm;\r\n\tmar" +
-        "gin-right:0cm;\r\n\tmargin-bottom:10.0pt;\r\n\tmargin-left:0cm;\r\n\tline-height:115%;\r\n\t" +
-        "font-size:11.0pt;\r\n\tfont-family:\"Calibri\",\"sans-serif\";\r\n\t}\r\nh1\r\n\t{mso-style-lin" +
-        "k:\"Heading 1 Char\";\r\n\tmargin-top:24.0pt;\r\n\tmargin-right:0cm;\r\n\tmargin-bottom:0cm" +
-        ";\r\n\tmargin-left:0cm;\r\n\tmargin-bottom:.0001pt;\r\n\tline-height:115%;\r\n\tpage-break-a" +
-        "fter:avoid;\r\n\tfont-size:14.0pt;\r\n\tfont-family:\"Cambria\",\"serif\";\r\n\tcolor:#365F91" +
-        ";}\r\nh2\r\n\t{mso-style-link:\"Heading 2 Char\";\r\n\tmargin-top:10.0pt;\r\n\tmargin-right:0" +
-        "cm;\r\n\tmargin-bottom:0cm;\r\n\tmargin-left:0cm;\r\n\tmargin-bottom:.0001pt;\r\n\tline-heig" +
-        "ht:115%;\r\n\tpage-break-after:avoid;\r\n\tfont-size:13.0pt;\r\n\tfont-family:\"Cambria\",\"" +
-        "serif\";\r\n\tcolor:#4F81BD;}\r\nh3\r\n\t{mso-style-link:\"Heading 3 Char\";\r\n\tmargin-top:1" +
-        "0.0pt;\r\n\tmargin-right:0cm;\r\n\tmargin-bottom:0cm;\r\n\tmargin-left:0cm;\r\n\tmargin-bott" +
-        "om:.0001pt;\r\n\tline-height:115%;\r\n\tpage-break-after:avoid;\r\n\tfont-size:11.0pt;\r\n\t" +
-        "font-family:\"Cambria\",\"serif\";\r\n\tcolor:#4F81BD;}\r\np.MsoToc1, li.MsoToc1, div.Mso" +
-        "Toc1\r\n\t{margin-top:0cm;\r\n\tmargin-right:0cm;\r\n\tmargin-bottom:5.0pt;\r\n\tmargin-left" +
-        ":0cm;\r\n\tline-height:115%;\r\n\tfont-size:11.0pt;\r\n\tfont-family:\"Calibri\",\"sans-seri" +
-        "f\";}\r\np.MsoToc2, li.MsoToc2, div.MsoToc2\r\n\t{margin-top:0cm;\r\n\tmargin-right:0cm;\r" +
-        "\n\tmargin-bottom:5.0pt;\r\n\tmargin-left:11.0pt;\r\n\tline-height:115%;\r\n\tfont-size:11." +
-        "0pt;\r\n\tfont-family:\"Calibri\",\"sans-serif\";}\r\np.MsoToc3, li.MsoToc3, div.MsoToc3\r" +
-        "\n\t{margin-top:0cm;\r\n\tmargin-right:0cm;\r\n\tmargin-bottom:5.0pt;\r\n\tmargin-left:22.0" +
-        "pt;\r\n\tline-height:115%;\r\n\tfont-size:11.0pt;\r\n\tfont-family:\"Calibri\",\"sans-serif\"" +
-        ";}\r\np.MsoTitle, li.MsoTitle, div.MsoTitle\r\n\t{mso-style-link:\"Title Char\";\r\n\tmarg" +
-        "in-top:0cm;\r\n\tmargin-right:0cm;\r\n\tmargin-bottom:15.0pt;\r\n\tmargin-left:0cm;\r\n\tbor" +
-        "der:none;\r\n\tpadding:0cm;\r\n\tfont-size:26.0pt;\r\n\tfont-family:\"Cambria\",\"serif\";\r\n\t" +
-        "color:#17365D;\r\n\tletter-spacing:.25pt;}\r\np.MsoTitleCxSpFirst, li.MsoTitleCxSpFir" +
-        "st, div.MsoTitleCxSpFirst\r\n\t{mso-style-link:\"Title Char\";\r\n\tmargin:0cm;\r\n\tmargin" +
-        "-bottom:.0001pt;\r\n\tborder:none;\r\n\tpadding:0cm;\r\n\tfont-size:26.0pt;\r\n\tfont-family" +
-        ":\"Cambria\",\"serif\";\r\n\tcolor:#17365D;\r\n\tletter-spacing:.25pt;}\r\np.MsoTitleCxSpMid" +
-        "dle, li.MsoTitleCxSpMiddle, div.MsoTitleCxSpMiddle\r\n\t{mso-style-link:\"Title Char" +
-        "\";\r\n\tmargin:0cm;\r\n\tmargin-bottom:.0001pt;\r\n\tborder:none;\r\n\tpadding:0cm;\r\n\tfont-s" +
-        "ize:26.0pt;\r\n\tfont-family:\"Cambria\",\"serif\";\r\n\tcolor:#17365D;\r\n\tletter-spacing:." +
-        "25pt;}\r\np.MsoTitleCxSpLast, li.MsoTitleCxSpLast, div.MsoTitleCxSpLast\r\n\t{mso-sty" +
-        "le-link:\"Title Char\";\r\n\tmargin-top:0cm;\r\n\tmargin-right:0cm;\r\n\tmargin-bottom:15.0" +
-        "pt;\r\n\tmargin-left:0cm;\r\n\tborder:none;\r\n\tpadding:0cm;\r\n\tfont-size:26.0pt;\r\n\tfont-" +
-        "family:\"Cambria\",\"serif\";\r\n\tcolor:#17365D;\r\n\tletter-spacing:.25pt;}\r\na:link, spa" +
-        "n.MsoHyperlink\r\n\t{color:blue;\r\n\ttext-decoration:underline;}\r\na:visited, span.Mso" +
-        "HyperlinkFollowed\r\n\t{color:purple;\r\n\ttext-decoration:underline;}\r\np.MsoAcetate, " +
-        "li.MsoAcetate, div.MsoAcetate\r\n\t{mso-style-link:\"Balloon Text Char\";\r\n\tmargin:0c" +
-        "m;\r\n\tmargin-bottom:.0001pt;\r\n\tfont-size:8.0pt;\r\n\tfont-family:\"Tahoma\",\"sans-seri" +
-        "f\";}\r\np.MsoTocHeading, li.MsoTocHeading, div.MsoTocHeading\r\n\t{margin-top:24.0pt;" +
-        "\r\n\tmargin-right:0cm;\r\n\tmargin-bottom:0cm;\r\n\tmargin-left:0cm;\r\n\tmargin-bottom:.00" +
-        "01pt;\r\n\tline-height:115%;\r\n\tpage-break-after:avoid;\r\n\tfont-size:14.0pt;\r\n\tfont-f" +
-        "amily:\"Cambria\",\"serif\";\r\n\tcolor:#365F91;\r\n\tfont-weight:bold;}\r\nspan.TitleChar\r\n" +
-        "\t{mso-style-name:\"Title Char\";\r\n\tmso-style-link:Title;\r\n\tfont-family:\"Cambria\",\"" +
-        "serif\";\r\n\tcolor:#17365D;\r\n\tletter-spacing:.25pt;}\r\nspan.Heading1Char\r\n\t{mso-styl" +
-        "e-name:\"Heading 1 Char\";\r\n\tmso-style-link:\"Heading 1\";\r\n\tfont-family:\"Cambria\",\"" +
-        "serif\";\r\n\tcolor:#365F91;\r\n\tfont-weight:bold;}\r\nspan.Heading2Char\r\n\t{mso-style-na" +
-        "me:\"Heading 2 Char\";\r\n\tmso-style-link:\"Heading 2\";\r\n\tfont-family:\"Cambria\",\"seri" +
-        "f\";\r\n\tcolor:#4F81BD;\r\n\tfont-weight:bold;}\r\nspan.Heading3Char\r\n\t{mso-style-name:\"" +
-        "Heading 3 Char\";\r\n\tmso-style-link:\"Heading 3\";\r\n\tfont-family:\"Cambria\",\"serif\";\r" +
-        "\n\tcolor:#4F81BD;\r\n\tfont-weight:bold;}\r\nspan.BalloonTextChar\r\n\t{mso-style-name:\"B" +
-        "alloon Text Char\";\r\n\tmso-style-link:\"Balloon Text\";\r\n\tfont-family:\"Tahoma\",\"sans" +
-        "-serif\";}\r\n.MsoChpDefault\r\n\t{font-family:\"Calibri\",\"sans-serif\";}\r\n.MsoPapDefaul" +
-        "t\r\n\t{margin-bottom:10.0pt;\r\n\tline-height:115%;}\r\n@page WordSection1\r\n\t{size:595." +
-        "3pt 841.9pt;\r\n\tmargin:70.85pt 2.0cm 70.85pt 2.0cm;}\r\ndiv.WordSection1\r\n\t{page:Wo" +
-        "rdSection1;}\r\n-->\r\n</style>\r\n\r\n</head>\r\n\t\t");
-
-        
-        #line default
-        #line hidden
-        
-        #line 485 "C:\tmp\Demo\LogicalOperationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
-
-	}
-
-        
-        #line default
-        #line hidden
-        
-        #line 488 "C:\tmp\Demo\LogicalOperationDemo\Abstractions\DocumentationABS\Documentation\DesignDocumentation_v1_0.tt"
- 
 	#region Class Level Variable Block
 	
 	//CQRS_v1_0.DomainType CurrentDomain;
@@ -1235,7 +661,7 @@ public partial class HeaderType {
     /// Base class for this transformation
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "10.0.0.0")]
-    public class DesignDocumentation_v1_0Base
+    public class CSVHierarchyGenerator_v1_0Base
     {
         #region Fields
         private global::System.Text.StringBuilder generationEnvironmentField;
